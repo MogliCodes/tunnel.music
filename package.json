@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@nuxtjs/tailwindcss": "^6.4.1",
     "pnpm": "^7.28.0",
     "vue-lite-youtube-embed": "^1.2.0"
   }
