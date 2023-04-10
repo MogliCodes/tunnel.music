@@ -10,15 +10,19 @@ specifiers:
   eslint-config-prettier: ^8.6.0
   eslint-plugin-tailwindcss: ^3.10.1
   eslint-plugin-vue: ^9.9.0
+  howler: ^2.2.3
   nuxt: ^3.2.3
   pnpm: ^7.28.0
+  spotify-web-api-js: ^1.5.2
   vue-lite-youtube-embed: ^1.2.0
 
 dependencies:
   '-': 0.0.1
   '@nuxtjs/tailwindcss': 6.4.1_webpack@5.75.0
   '@vueuse/core': 9.13.0_vue@3.2.47
+  howler: 2.2.3
   pnpm: 7.28.0
+  spotify-web-api-js: 1.5.2
   vue-lite-youtube-embed: 1.2.0_vue@3.2.47
 
 devDependencies:
@@ -4668,6 +4672,10 @@ packages:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: true
 
+  /howler/2.2.3:
+    resolution: {integrity: sha512-QM0FFkw0LRX1PR8pNzJVAY25JhIWvbKMBFM4gqk+QdV+kPXOhleWGCB6AiAF/goGjIHK2e/nIElplvjQwhr0jg==}
+    dev: false
+
   /html-tags/3.2.0:
     resolution: {integrity: sha512-vy7ClnArOZwCnqZgvv+ddgHgJiAFXe3Ge9ML5/mBctVJoUoYPCdxVucOywjDARn6CVoh3dRSFdPHy2sX80L0Wg==}
     engines: {node: '>=8'}
@@ -7692,6 +7700,10 @@ packages:
   /spdx-license-ids/3.0.12:
     resolution: {integrity: sha512-rr+VVSXtRhO4OHbXUiAF7xW3Bo9DuuF6C5jH+q/x15j2jniycgKbxU09Hr0WqlSLUs4i4ltHGXqTe7VHclYWyA==}
     dev: true
+
+  /spotify-web-api-js/1.5.2:
+    resolution: {integrity: sha512-ie1gbg1wCabfobIkXTIBLUMyULS/hMCpF44Cdx2pAO0/+FrjhNSDjlDzcwCEDy+ZIo3Fscs+Gkg/GTeQ/ijo+Q==}
+    dev: false
 
   /stable/0.1.8:
     resolution: {integrity: sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w==}

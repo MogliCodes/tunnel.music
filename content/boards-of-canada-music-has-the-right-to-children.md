@@ -1,12 +1,12 @@
 ---
-title: 'C418 – Minecraft'
+title: 'Boards of Canada – Music has the right to children'
 description: 'test'
-artist: 'C418'
-album: 'Minecraft: Volume Alpha'
+artist: 'Boards of Canada'
+album: 'Music has the right to children'
 type: 'album'
-genres: 'Ambient, Video Game Music'
+genres: 'Ambient'
 navigation:
-    cover: 'https://c418.org/wp-content/uploads/2016/05/a3390257927_10.jpg'
+    cover: 'https://e.snmc.io/i/600/w/0becf10a0a857c44eb1627cfbbbcc700/2371321/boards-of-canada-music-has-the-right-to-children-Cover-Art.jpg'
 release: '04-03-2011'
 ---
 

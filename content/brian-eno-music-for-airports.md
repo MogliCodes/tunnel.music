@@ -1,12 +1,12 @@
 ---
-title: 'C418 – Minecraft'
+title: 'Brian Eno – Ambient 1: Music for airports'
 description: 'test'
-artist: 'C418'
-album: 'Minecraft: Volume Alpha'
+artist: 'Brian Eno'
+album: 'Ambient 1: Music for airports'
 type: 'album'
-genres: 'Ambient, Video Game Music'
+genres: 'Ambient'
 navigation:
-    cover: 'https://c418.org/wp-content/uploads/2016/05/a3390257927_10.jpg'
+    cover: 'https://e.snmc.io/i/600/w/832aa53663a78410e31842ec345085dd/10223980/brian-eno-ambient-1-music-for-airports-Cover-Art.png'
 release: '04-03-2011'
 ---
 

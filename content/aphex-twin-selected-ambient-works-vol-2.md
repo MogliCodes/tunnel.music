@@ -1,12 +1,12 @@
 ---
-title: 'C418 – Minecraft'
+title: 'Aphex Twin – Selected Ambient Works Vol. 2'
 description: 'test'
-artist: 'C418'
-album: 'Minecraft: Volume Alpha'
+artist: 'Aphex Twin'
+album: 'Selected Ambient Works Vol. 2'
 type: 'album'
-genres: 'Ambient, Video Game Music'
+genres: 'Ambient'
 navigation:
-    cover: 'https://c418.org/wp-content/uploads/2016/05/a3390257927_10.jpg'
+    cover: 'https://e.snmc.io/i/600/w/41082ffa4a978aa285038aa18539ba0d/2622116/aphex-twin-selected-ambient-works-volume-ii-Cover-Art.jpg'
 release: '04-03-2011'
 ---
 
