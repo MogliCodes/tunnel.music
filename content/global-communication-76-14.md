@@ -1,13 +1,13 @@
 ---
-title: 'C418 – Minecraft'
+title: 'Global Communication – 76:14'
 description: 'test'
-artist: 'C418'
-album: 'Minecraft: Volume Alpha'
+artist: 'Global Communication'
+album: '76:14'
 type: 'album'
-genres: 'Ambient, Video Game Music'
+genres: 'Ambient'
 navigation:
-    cover: 'https://c418.org/wp-content/uploads/2016/05/a3390257927_10.jpg'
-release: '04-03-2011'
+    cover: 'https://e.snmc.io/i/600/w/3a1ea2d964d8fe9f66edac69e4a29b1d/10613025/global-communication-76_14-cover-art.jpg'
+release: '1994-06-01'
 ---
 
 # C418 – Minecraft: Volume Alpha

@@ -1,12 +1,12 @@
 ---
-title: 'C418 – Minecraft'
+title: 'Pantha du Prince – This bliss'
 description: 'test'
-artist: 'C418'
-album: 'Minecraft: Volume Alpha'
+artist: 'Pantha du Prince'
+album: 'Ambient 1: Music for airports'
 type: 'album'
-genres: 'Ambient, Video Game Music'
+genres: 'Ambient'
 navigation:
-    cover: 'https://c418.org/wp-content/uploads/2016/05/a3390257927_10.jpg'
+    cover: 'https://e.snmc.io/i/600/w/969e3637de88975f3ee0d7384d97ac00/10706395/pantha-du-prince-this-bliss-Cover-Art.jpg'
 release: '04-03-2011'
 ---
 
