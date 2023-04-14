@@ -6,6 +6,9 @@ export default defineNuxtConfig({
                 clientId: process.env.SPOTIFY_CLIENT_ID,
                 clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
                 accessToken: process.env.SPOTIFY_ACCESS_TOKEN
+            },
+            youtube: {
+                apiKey: process.env.YOUTUBE_API_KEY
             }
         }
     },

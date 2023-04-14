@@ -1,9 +1,9 @@
 <template>
   <div>
-    <AudioPlayer />
+    <YoutubeWrapper />
   </div>
 </template>
 
 <script setup>
-import AudioPlayer from "~/components/audioplayer/AudioPlayer.vue";
+import YoutubeWrapper from "~/components/wrapper/YoutubeWrapper.vue";
 </script>
