@@ -5,6 +5,7 @@ specifiers:
   '@nuxt/content': ^2.4.3
   '@nuxtjs/eslint-config-typescript': ^12.0.0
   '@nuxtjs/tailwindcss': ^6.4.1
+  '@pinia/nuxt': ^0.4.8
   '@vueuse/core': ^9.13.0
   eslint: ^8.35.0
   eslint-config-prettier: ^8.6.0
@@ -12,6 +13,7 @@ specifiers:
   eslint-plugin-vue: ^9.9.0
   howler: ^2.2.3
   nuxt: ^3.2.3
+  pinia: ^2.0.34
   pnpm: ^7.28.0
   spotify-web-api-js: ^1.5.2
   vue-lite-youtube-embed: ^1.2.0
@@ -19,8 +21,10 @@ specifiers:
 dependencies:
   '-': 0.0.1
   '@nuxtjs/tailwindcss': 6.4.1_webpack@5.75.0
+  '@pinia/nuxt': 0.4.8_hmuptsblhheur2tugfgucj7gc4
   '@vueuse/core': 9.13.0_vue@3.2.47
   howler: 2.2.3
+  pinia: 2.0.34_hmuptsblhheur2tugfgucj7gc4
   pnpm: 7.28.0
   spotify-web-api-js: 1.5.2
   vue-lite-youtube-embed: 1.2.0_vue@3.2.47
@@ -1607,6 +1611,19 @@ packages:
     dev: true
     optional: true
 
+  /@pinia/nuxt/0.4.8_hmuptsblhheur2tugfgucj7gc4:
+    resolution: {integrity: sha512-E0HKmW+6Ec5HYzomZl86xil2rGPRAqKG1d+slVVLBHC7PFZOM0VIw/1XFO9hwo+EiCuDEXZDReZwTqO7KQsMgQ==}
+    dependencies:
+      '@nuxt/kit': 3.2.3
+      pinia: 2.0.34_hmuptsblhheur2tugfgucj7gc4
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - rollup
+      - supports-color
+      - typescript
+      - vue
+    dev: false
+
   /@pkgr/utils/2.3.1:
     resolution: {integrity: sha512-wfzX8kc1PMyUILA+1Z/EqoE4UCXGy0iRGMhPwdfae1+f0OXlLqCk+By+aMzgJBzR9AzS4CDizioG6Ss1gvAFJw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -2165,7 +2182,6 @@ packages:
 
   /@vue/devtools-api/6.5.0:
     resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
-    dev: true
 
   /@vue/reactivity-transform/3.2.47:
     resolution: {integrity: sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA==}
@@ -6579,6 +6595,24 @@ packages:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
 
+  /pinia/2.0.34_hmuptsblhheur2tugfgucj7gc4:
+    resolution: {integrity: sha512-cgOoGUiyqX0SSgX8XelK9+Ri4XA2/YyNtgjogwfzIx1g7iZTaZPxm7/bZYMCLU2qHRiHhxG7SuQO0eBacFNc2Q==}
+    peerDependencies:
+      '@vue/composition-api': ^1.4.0
+      typescript: '>=4.4.4'
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      typescript: 4.9.5
+      vue: 3.2.47
+      vue-demi: 0.13.11_vue@3.2.47
+    dev: false
+
   /pkg-types/1.0.2:
     resolution: {integrity: sha512-hM58GKXOcj8WTqUXnsQyJYXdeAPbythQgEF3nTcEo+nkD49chjQ9IKm/QJy9xf6JakXptz86h7ecP2024rrLaQ==}
     dependencies:
@@ -8164,7 +8198,6 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-    dev: true
 
   /ufo/1.1.1:
     resolution: {integrity: sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==}

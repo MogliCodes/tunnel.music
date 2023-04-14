@@ -55,7 +55,7 @@ async function requestAccessToken() {
     body: 'grant_type=client_credentials'
   })
   const {data} = response
-  return  data.value.access_token
+  return  data.value?.access_token
 }
 async function getPlaylist() {
   const accessToken = await requestAccessToken()

@@ -3,11 +3,13 @@ title: 'Boards of Canada – Music has the right to children'
 description: 'test'
 artist: 'Boards of Canada'
 album: 'Music has the right to children'
-type: 'album'
 genres: 'Ambient'
+type: 'album'
+platform: 'spotify'
+playlistId: ''
 navigation:
     cover: 'https://e.snmc.io/i/600/w/0becf10a0a857c44eb1627cfbbbcc700/2371321/boards-of-canada-music-has-the-right-to-children-Cover-Art.jpg'
-release: '04-03-2011'
+release: 'test'
 ---
 
 # C418 – Minecraft: Volume Alpha
