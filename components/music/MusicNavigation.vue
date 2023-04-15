@@ -2,8 +2,6 @@
 const { data: navigation } = await useAsyncData('navigation', () => {
   return fetchContentNavigation()
 })
-
-
 </script>
 
 <template>

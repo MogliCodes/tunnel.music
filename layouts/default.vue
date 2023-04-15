@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen font-mono dark:bg-background dark:text-text">
-    <AppHeader ref="appHeader"/>
+    <AppHeader ref="appHeader" />
     <AppContainer :style="contentStyle" class="py-24">
       <NuxtPage><slot /></NuxtPage>
     </AppContainer>
@@ -31,7 +31,6 @@ onMounted(() => {
   contentHeight.value = height.value - (headerHeight.value + footerHeight.value)
   contentStyle.value = `min-height: ${contentHeight.value}px;`
 })
-
 </script>
 
 <style>

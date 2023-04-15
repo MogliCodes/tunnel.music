@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 export const useAudioplayerStore = defineStore('audioplayer', () => {
-    const currentAudioId = ref()
+  const currentAudioId = ref()
 
-    function setCurrentAudioId(id: number): void {
-        currentAudioId.value = id
-    }
+  function setCurrentAudioId(id: number): void {
+    currentAudioId.value = id
+  }
 
-    return { setCurrentAudioId }
+  return { setCurrentAudioId }
 })

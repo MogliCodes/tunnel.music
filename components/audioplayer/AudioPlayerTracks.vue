@@ -1,5 +1,3 @@
 <template>
-  <div>
-    tracks
-  </div>
+  <div>tracks</div>
 </template>

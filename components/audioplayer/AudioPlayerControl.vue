@@ -1,17 +1,16 @@
 <template>
   <div class="rounded-full bg-text">
-    <img class="invert" :src="image" alt="">
+    <img class="invert" :src="image" alt="" />
   </div>
 </template>
 
 <script setup>
-
 const props = defineProps({
-  controlType: String
+  controlType: String,
 })
 
 const image = computed(() => {
-  switch(props.controlType) {
+  switch (props.controlType) {
     case 'prev':
       return '/img/003-zuruck.png'
     case 'play':
@@ -20,5 +19,4 @@ const image = computed(() => {
       return '/img/001-nachster.png'
   }
 })
-
 </script>
