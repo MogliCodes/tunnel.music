@@ -21,7 +21,7 @@
     </div>
     <ContentNavigation v-slot="{ navigation }" :query="query">
       <ul class="grid gap-8" :class="columnClass">
-        <li v-for="item of navigation" :key="item._path">
+        <li v-for="item in navigation[0].children" :key="item._path">
           <NuxtLink :to="item._path">
             <MusicTeaser v-bind="item" />
           </NuxtLink>
@@ -32,6 +32,7 @@
 </template>
 
 <script setup lang="ts">
+// ts-ignore
 import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 const query: QueryBuilderParams = {
   where: [{ type: 'album' }],
@@ -39,7 +40,7 @@ const query: QueryBuilderParams = {
   sort: [{ date: -1 }],
 }
 
-const columnCount = ref()
+const columnCount = ref(3)
 
 const columnClass = computed<string>(() => {
   return columnCount.value ? `grid-cols-${columnCount.value}` : 'grid-cols-3'
