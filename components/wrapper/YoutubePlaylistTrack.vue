@@ -1,10 +1,22 @@
 <template>
-  <div class="cursor-pointer border-b-2 border-white p-4" @click="emitVideoId">
-    <div>{{ attrs?.title }}</div>
+  <div
+    class="cursor-pointer border-b-2 border-white p-4"
+    :class="{ 'bg-gray-900': props.isActive }"
+    @click="emitVideoId"
+  >
+    <p>test</p>
+    <div>{{ props.title }}</div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+type Props = {
+  title: string
+  isActive: boolean
+}
+
+const props = defineProps<Props>()
+
 const attrs = useAttrs()
 const config = useRuntimeConfig()
 const apiKey = config.public.youtube.apiKey
@@ -24,6 +36,7 @@ if (attrs.index === 0) {
 }
 
 function emitVideoId() {
-  emit('videoId', attrs.id)
+  const payload = { id: attrs.id, index: attrs.index }
+  emit('videoId', payload)
 }
 </script>

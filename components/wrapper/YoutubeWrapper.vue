@@ -1,48 +1,53 @@
-<script setup>
-import YoutubePlaylistTrack from '~/components/wrapper/YoutubePlaylistTrack.vue'
+<template>
+  <div class="flex flex-col gap-12">
+    <div v-if="pending">
+      <h1>DATA LOADING</h1>
+    </div>
+    <div v-else>
+      <div class="w-1/2">
+        <YoutubePlayer :data="data" />
+      </div>
+      <div class="w-1/2">
+        <YoutubePlaylistTrack
+          v-for="(item, index) in data?.items"
+          :id="item?.snippet.resourceId.videoId"
+          :key="item?.id"
+          :is-active="index === audioPlayerStore?.currentAudioIndex"
+          :index="index"
+          :title="item?.snippet.title"
+          :thumbnail="item?.snippet.thumbnails.default.url"
+          @video-id="saveVideoId"
+        />
+      </div>
+    </div>
+  </div>
+</template>
 
-const props = defineProps({
-  playlistId: String,
-})
+<script setup lang="ts">
+import YoutubePlayer from '~/components/wrapper/YoutubePlayer'
+import YoutubePlaylistTrack from '~/components/wrapper/YoutubePlaylistTrack'
+import { useAudioplayerStore } from '~/store/audioplayer'
+const audioPlayerStore = useAudioplayerStore()
+
+type Props = {
+  playlistId: string
+}
+
+const props = defineProps<Props>()
 
 const config = useRuntimeConfig()
 const API_KEY = config.public.youtube.apiKey
 const { data, pending } = await useFetch(
   `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${props.playlistId}&key=${API_KEY}`,
 )
-const firstVideoId = ref()
 
-const iframeSrc = computed(() => {
-  return `//www.youtube.com/embed/${firstVideoId.value}`
-})
+const videoId = ref()
+const currentVideoIndex = ref(0)
+audioPlayerStore.setCurrentAudioIndex(currentVideoIndex.value)
 
-function saveFirstVideoId(payload) {
-  firstVideoId.value = payload
+function saveVideoId(payload: { id: string; index: number }) {
+  videoId.value = payload.id
+  currentVideoIndex.value = payload.index
+  audioPlayerStore.setCurrentAudioIndex(payload.index)
 }
 </script>
-
-<template>
-  <div class="flex gap-12">
-    <div class="w-1/2">
-      <iframe
-        class="h-[200px] w-full"
-        :src="iframeSrc"
-        frameborder="0"
-      ></iframe>
-    </div>
-    <div v-if="!pending" class="w-1/2">
-      <YoutubePlaylistTrack
-        v-for="(item, index) in data?.items"
-        :id="item?.snippet.resourceId.videoId"
-        :key="item?.id"
-        :class="{
-          'bg-gray-500': item?.snippet.resourceId.videoId === firstVideoId,
-        }"
-        :index="index"
-        :title="item?.snippet.title"
-        :thumbnail="item?.snippet.thumbnails.default.url"
-        @video-id="saveFirstVideoId"
-      />
-    </div>
-  </div>
-</template>
