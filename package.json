@@ -27,6 +27,7 @@
     "pinia": "^2.0.34",
     "pnpm": "^7.28.0",
     "spotify-web-api-js": "^1.5.2",
-    "vue-lite-youtube-embed": "^1.2.0"
+    "vue-lite-youtube-embed": "^1.2.0",
+    "vue3-youtube": "^0.1.9"
   }
 }
