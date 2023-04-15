@@ -4,7 +4,12 @@
       <h1>Albums</h1>
       <div class="mb-8 flex w-1/4 items-center">
         <label for="">Amount of columns</label>
-        <select id="" v-model="columnCount" class="block w-full bg-gray-900 p-4" name="">
+        <select
+          id=""
+          v-model="columnCount"
+          class="block w-full bg-gray-900 p-4"
+          name=""
+        >
           <option value="3">3</option>
           <option value="4">4</option>
           <option value="5">5</option>
@@ -28,12 +33,15 @@
 
 <script setup lang="ts">
 import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
-const query: QueryBuilderParams = { where: [{ type: 'album' }], limit: 20, sort: [{ date: -1 }] }
+const query: QueryBuilderParams = {
+  where: [{ type: 'album' }],
+  limit: 20,
+  sort: [{ date: -1 }],
+}
 
 const columnCount = ref()
 
 const columnClass = computed<string>(() => {
   return columnCount.value ? `grid-cols-${columnCount.value}` : 'grid-cols-3'
 })
-
 </script>

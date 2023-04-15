@@ -6,5 +6,5 @@
   </div>
 </template>
 <script setup lang="ts">
-import AudioPlayerControl from "~/components/audioplayer/AudioPlayerControl.vue";
+import AudioPlayerControl from '~/components/audioplayer/AudioPlayerControl.vue'
 </script>

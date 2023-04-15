@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import YoutubeWrapper from "~/components/wrapper/YoutubeWrapper.vue";
+import YoutubeWrapper from '~/components/wrapper/YoutubeWrapper.vue'
 </script>

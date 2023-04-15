@@ -12,16 +12,16 @@
         </ContentDoc>
       </div>
       <div v-if="page.platform === 'youtube'" class="w-1/2">
-       <div class="">
-          <YoutubeWrapper :playlist-id="page.playlistId"/>
-       </div>
+        <div class="">
+          <YoutubeWrapper :playlist-id="page.playlistId" />
+        </div>
       </div>
     </div>
   </main>
 </template>
 
 <script setup>
-import YoutubeWrapper from "~/components/wrapper/YoutubeWrapper.vue";
+import YoutubeWrapper from '~/components/wrapper/YoutubeWrapper.vue'
 
 const { page } = useContent()
 </script>
