@@ -35,7 +35,7 @@ onMounted(() => {
 
 <style>
 main h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
 }
 </style>
