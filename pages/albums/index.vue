@@ -20,13 +20,15 @@
       </div>
     </div>
     <ContentNavigation v-slot="{ navigation }" :query="query">
-      <ul class="grid gap-8" :class="columnClass">
-        <li v-for="item in navigation[0].children" :key="item._path">
-          <NuxtLink :to="item._path">
-            <MusicTeaser v-bind="item" />
-          </NuxtLink>
-        </li>
-      </ul>
+      <div v-if="navigation">
+        <ul class="grid gap-8" :class="columnClass">
+          <li v-for="item in navigation?.[0].children" :key="item._path">
+            <NuxtLink :to="item._path">
+              <MusicTeaser v-bind="item" />
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
     </ContentNavigation>
   </main>
 </template>
