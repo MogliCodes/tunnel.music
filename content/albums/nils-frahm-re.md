@@ -10,6 +10,9 @@ navigation:
 release: '04-03-2011'
 ---
 
+<music-genre-list :genres="genres"></music-genre-list>
+
+
 # Nils Frahm – Screws
 Back in 2012 Nils Frahm fell out of his bunk bed and broke his thumb. Kind of a bad situation for a pianist. This album originated from this accident. You can read more about it on [his website](https://www.nilsfrahm.com/works/screws/)
 <br>
