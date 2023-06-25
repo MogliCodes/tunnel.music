@@ -6,9 +6,13 @@ platform: 'youtube'
 genres: 'Ambient, Video Game Music'
 release: '04-03-2011'
 playlistId: 'PLcloqkphBqS2QVSHKpW9DjCweO9jji-vN'
-comments:
-    c1: '/nothing-is-real-001.m4a'
-    c2: '/nothing-is-real-001.m4a'
+navigation:
+  cover: '/img/cover_fokus_techno.webp'
+#comments:
+#    c1: {path: '/nothing-is-real-001.m4a', index: 1}
+#    c2: {path: '/nothing-is-real-001.m4a', index: 4}
+comments: 
+    [{path: '/nothing-is-real-001.m4a', index: 1}, {path: '/nothing-is-real-001.m4a', index: 4}]
 ---
 
 # FOKUS: Ambient Techno

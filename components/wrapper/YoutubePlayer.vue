@@ -17,14 +17,8 @@ const props = defineProps<Props>()
 const audioPlayerStore = useAudioplayerStore()
 audioPlayerStore.setPlaylistData(props.data)
 
-const videoId = computed<string>(() => {
-  return audioPlayerStore.playlistData.items?.[
-    audioPlayerStore.currentAudioIndex
-  ].snippet?.resourceId?.videoId
-})
-
 const iframeSrc = computed<string>(() => {
-  return `https://www.youtube.com/watch?v=${videoId.value}`
+  return `https://www.youtube.com/watch?v=${audioPlayerStore.currentAudioId}`
 })
 
 function stateChange(event: any) {
@@ -32,23 +26,19 @@ function stateChange(event: any) {
   const playerState = event.target.getPlayerState()
   switch (playerState) {
     case -1:
-      console.log('nicht gestartet')
+      // console.log('nicht gestartet')
       break
     case 0:
-      console.log('beendet')
+      // beendet
       temp = audioPlayerStore.currentAudioIndex + 1
-      console.log(
-        'audioPlayerStore.currentAudioIndex',
-        audioPlayerStore.currentAudioIndex,
-      )
-      console.log('temp.temp', temp)
       audioPlayerStore.setCurrentAudioIndex(temp)
+      audioPlayerStore.setCurrentAudioId(null)
       break
     case 1:
-      console.log('wiedergabe')
+      // console.log('wiedergabe')
       break
     case 2:
-      console.log('pausiert')
+      // console.log('pausiert')
       break
   }
 }
