@@ -1,15 +1,18 @@
 <template>
   <div
-    class="cursor-pointer border-b-2 border-white p-4"
+    class="w-full cursor-pointer border-b-2 border-white p-4"
     :class="{ 'bg-gray-900': props.isActive }"
     @click="emitVideoId"
   >
-    <p>test</p>
     <div>{{ props.title }}</div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useAudioplayerStore } from '~/store/audioplayer'
+
+const audioStore = useAudioplayerStore()
+
 type Props = {
   title: string
   isActive: boolean
@@ -37,6 +40,8 @@ if (attrs.index === 0) {
 
 function emitVideoId() {
   const payload = { id: attrs.id, index: attrs.index }
+  audioStore.setCurrentAudioId(attrs.id as string)
+  console.log('paylpad', payload)
   emit('videoId', payload)
 }
 </script>
