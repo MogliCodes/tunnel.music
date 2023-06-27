@@ -12,7 +12,7 @@ navigation:
 #    c1: {path: '/nothing-is-real-001.m4a', index: 1}
 #    c2: {path: '/nothing-is-real-001.m4a', index: 4}
 comments: 
-    [{path: '/nothing-is-real-001.m4a', index: 1}, {path: '/nothing-is-real-001.m4a', index: 4}]
+    [{path: '/test.m4a', index: 1}, {path: '/nothing-is-real-001.m4a', index: 4}]
 ---
 
 # FOKUS: Ambient Techno
