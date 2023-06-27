@@ -1,8 +1,8 @@
 <template>
   <div
-    class="w-full cursor-pointer border-b-2 border-white p-4"
-    :class="{ 'bg-gray-900': props.isActive }"
-    @click="emitVideoId"
+    class="w-full cursor-pointer border-t-2 border-white p-4"
+    :class="{ 'bg-gray-600': props.isActive }"
+    @click="playTrack"
   >
     <div>{{ props.title }}</div>
   </div>
@@ -38,9 +38,10 @@ if (attrs.index === 0) {
   emit('videoId', attrs.id)
 }
 
-function emitVideoId() {
+function playTrack() {
   const payload = { id: attrs.id, index: attrs.index }
-  audioStore.setCurrentAudioId(attrs.id as string)
+  audioStore.setCurrentAudioIndex(payload.index)
+  audioStore.setCurrentAudioIdByIndex(payload.index)
   console.log('paylpad', payload)
   emit('videoId', payload)
 }

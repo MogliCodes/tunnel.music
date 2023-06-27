@@ -1,7 +1,7 @@
 <template>
   <div
-    class="cursor-pointer border-b-2 border-white p-4"
-    :class="{ 'bg-gray-900': props.isActive }"
+    class="cursor-pointer border-t-2 border-white p-4"
+    :class="{ 'bg-gray-600 font-bold': props.isActive }"
     @click="playCommentary"
   >
     Kommentar #{{ playlistIndex }}
@@ -11,7 +11,6 @@
 
 <script setup lang="ts">
 import { useAudioplayerStore } from '~/store/audioplayer'
-
 const audioPlayerStore = useAudioplayerStore()
 
 type Props = {
@@ -22,19 +21,27 @@ type Props = {
 
 const props = defineProps<Props>()
 
+const shouldPlay = computed(() => {
+  return props.isActive
+})
+
+watch(shouldPlay, () => {
+  playCommentary()
+})
+
+let audio
+audio = new Audio(props.audioFile)
+
 function playCommentary() {
+  if (!audio) return
   audioPlayerStore.setCurrentAudioIndex(props.playlistIndex)
-
-  const audio = new Audio(props.audioFile)
-
-  console.log(audioPlayerStore.currentAudioIndex)
-  console.log('====')
-  audio.addEventListener('ended', onAudioEnded)
   audio.play()
+  audio.addEventListener('ended', onAudioEnded)
 }
 
 function onAudioEnded() {
   console.log('ENDED')
+  audio = null
   audioPlayerStore.incrementCurrentAudioIndex()
   audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
 }

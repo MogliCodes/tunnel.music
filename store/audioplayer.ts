@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 export const useAudioplayerStore = defineStore('audioplayer', () => {
   const currentAudioId = ref()
-  const currentAudioIndex = ref(0)
+  const currentAudioIndex = ref()
   const playlistData = ref()
 
   function setCurrentAudioId(id: string): void {
@@ -9,10 +9,14 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
   }
   function setCurrentAudioIdByIndex(index: number): void {
     currentAudioId.value =
-      playlistData?.value?.items[index]?.snippet?.resourceId?.videoId
+      playlistData.value[index]?.snippet?.resourceId?.videoId
+    console.log(
+      ' setCurrentAudioIdByIndex currentAudioId.value',
+      currentAudioId.value,
+    )
   }
 
-  function setPlaylistData(data: any) {
+  function setPlaylistData(data: object) {
     playlistData.value = data
   }
 
@@ -20,8 +24,14 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
     currentAudioIndex.value = index
   }
 
+  function decrementCurrentAudioIndex() {
+    currentAudioIndex.value--
+  }
+
   function incrementCurrentAudioIndex(): void {
     currentAudioIndex.value++
+    console.log('INCREMENT')
+    console.log(currentAudioIndex.value)
   }
 
   return {
@@ -31,6 +41,7 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
     currentAudioId,
     currentAudioIndex,
     setCurrentAudioIndex,
+    decrementCurrentAudioIndex,
     incrementCurrentAudioIndex,
     setCurrentAudioIdByIndex,
   }

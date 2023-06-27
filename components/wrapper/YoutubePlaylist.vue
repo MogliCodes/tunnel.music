@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div v-for="(item, index) in mergedData" :key="index">
+  <div class="mt-4 w-full rounded-2xl bg-black bg-opacity-30 p-8">
+    <p class="mb-0 pb-4 text-center text-2xl font-bold">Track list</p>
+    <div v-for="(item, index) in audioPlayerStore.playlistData" :key="index">
       <div v-if="item.hasOwnProperty('kind')">
         <YoutubePlaylistTrack
           :id="item?.snippet?.resourceId.videoId"
@@ -9,12 +10,11 @@
           :index="index"
           :title="item?.snippet?.title"
           :thumbnail="item?.snippet?.thumbnails.default.url"
-          @video-id="saveVideoId"
         />
       </div>
       <div v-else>
         <YoutubePlaylistCommentary
-          :is-active="index === audioPlayerStore?.currentAudioIndex"
+          :is-active="isActive(index)"
           :playlist-index="item?.index"
           :audio-file="item?.path"
         />
@@ -29,44 +29,12 @@ import { useAudioplayerStore } from '~/store/audioplayer'
 import YoutubePlaylistCommentary from '~/components/wrapper/YoutubePlaylistCommentary.vue'
 const audioPlayerStore = useAudioplayerStore()
 
-type Props = {
-  youtubeTracks: []
-  comments: []
+function isActive(index): boolean {
+  return index === audioPlayerStore?.currentAudioIndex
 }
 
-const props = defineProps<Props>()
-
-const mergedData = ref(null)
-
-function insertAtIndex(arr, items) {
-  for (const item of items) {
-    if (
-      item.hasOwnProperty('index') &&
-      item.index >= 0 &&
-      item.index < arr.length
-    ) {
-      arr.splice(item.index, 0, item)
-    } else {
-      arr.push(item)
-    }
-  }
-
-  return arr
-}
-
-function mergeData(dataYoutube, dataComments) {
-  mergedData.value = [...dataYoutube]
-  insertAtIndex(mergedData.value, dataComments)
-}
-mergeData(props.youtubeTracks, props.comments)
-
-const videoId = ref()
-const currentVideoIndex = ref(0)
-audioPlayerStore.setCurrentAudioIndex(currentVideoIndex.value)
-
-function saveVideoId(payload: { id: string; index: number }) {
-  videoId.value = payload.id
-  currentVideoIndex.value = payload.index
-  audioPlayerStore.setCurrentAudioIndex(payload.index)
-}
+// function saveVideoId(payload: { id: string; index: number }) {
+//   audioPlayerStore.setCurrentAudioIndex(payload.index)
+//   audioPlayerStore.setCurrentAudioIdByIndex(payload.index)
+// }
 </script>

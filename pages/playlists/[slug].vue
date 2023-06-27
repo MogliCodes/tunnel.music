@@ -4,15 +4,13 @@
       <AlbumDetail />
     </div>
     <div v-else>
-      <div class="flex gap-12">
-        <div v-if="page?.platform === 'youtube'" class="flex gap-24">
-          <client-only>
-            <YoutubeWrapper
-              :comments="page?.comments"
-              :playlist-id="page?.playlistId"
-            />
-          </client-only>
-        </div>
+      <div v-if="page?.platform === 'youtube'">
+        <client-only>
+          <YoutubeWrapper
+            :comments="page?.comments"
+            :playlist-id="page?.playlistId"
+          />
+        </client-only>
       </div>
     </div>
   </main>
