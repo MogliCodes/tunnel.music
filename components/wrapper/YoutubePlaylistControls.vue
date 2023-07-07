@@ -39,6 +39,7 @@
 import { useAudioplayerStore } from '~/store/audioplayer'
 
 const audioPlayerStore = useAudioplayerStore()
+const emit = defineEmits(['togglePlay'])
 function playPrev() {
   audioPlayerStore.decrementCurrentAudioIndex()
   audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
@@ -53,5 +54,6 @@ function playNext() {
 
 function togglePlay() {
   console.log('togglePlay')
+  emit('togglePlay')
 }
 </script>

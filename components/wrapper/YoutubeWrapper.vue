@@ -1,5 +1,5 @@
 <template>
-  <div class="w-1/2">
+  <div>
     <div v-if="pending">
       <h1>DATA LOADING</h1>
     </div>
@@ -10,7 +10,7 @@
         :audio-id="audioStore.currentAudioId"
       />
       <div v-else class="h-[360px] w-full bg-pink-500"></div>
-      <YoutubePlaylistControls />
+      <YoutubePlaylistControls @toggle-play="togglePlay" />
       <YoutubePlaylist
         :youtube-tracks="data?.items"
         :comments="props.comments"
@@ -27,6 +27,11 @@ import { useAudioplayerStore } from '~/store/audioplayer'
 import YoutubePlaylistControls from '~/components/wrapper/YoutubePlaylistControls.vue'
 const audioStore = useAudioplayerStore()
 
+// let youtubePlayer
+//
+// onMounted(() => {
+//   youtubePlayer = inject('youtubePlayer')
+// })
 type Props = {
   playlistId: string
   comments: []
@@ -71,6 +76,11 @@ function initPlaylist() {
     console.log('audiostore', audioStore.currentAudioId)
   }
 }
+
+// function togglePlay() {
+//   console.log('TEST TOGGLE', youtubePlayer)
+//   youtubePlayer.playVideo()
+// }
 
 function insertAtIndex(arr, items) {
   for (const item of items) {

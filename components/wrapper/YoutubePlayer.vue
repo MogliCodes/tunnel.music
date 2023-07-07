@@ -11,9 +11,19 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import YouTube from 'vue3-youtube'
 import { useAudioplayerStore } from '~/store/audioplayer'
 
+// const youtube = ref(null)
+//
+// onMounted(() => {
+//   console.log(youtube.value)
+//   console.log(youtube.value.getPlayerState())
+//   console.log(youtube.value.playVideo())
+//   youtube.value.playVideo()
+//   youtube.value.mute()
+// })
 const audioPlayerStore = useAudioplayerStore()
 
 const iframeSrc = computed<string>(() => {

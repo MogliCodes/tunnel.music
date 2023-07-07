@@ -1,10 +1,10 @@
 <template>
   <main>
-    <div v-if="page && page?.type === 'album'">
-      <AlbumDetail />
-    </div>
-    <div v-else>
-      <div v-if="page?.platform === 'youtube'">
+    <div class="flex gap-24">
+      <div class="w-1/2">
+        <ContentDoc />
+      </div>
+      <div class="w-1/2">
         <client-only>
           <YoutubeWrapper
             :comments="page?.comments"
@@ -18,7 +18,6 @@
 
 <script setup>
 import YoutubeWrapper from '~/components/wrapper/YoutubeWrapper.vue'
-import AlbumDetail from '~/components/templates/AlbumDetail.vue'
 
 const { page } = useContent()
 </script>

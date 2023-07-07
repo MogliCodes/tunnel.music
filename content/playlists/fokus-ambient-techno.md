@@ -18,14 +18,7 @@ comments:
 # FOKUS: Ambient Techno
 During the development of this platform I needed drive and focus. Around that time I also re-discovered an album by Marcel Fengler for me. This kickstarted this playist.
 
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+I really cannot get enough of driving ambient techno, although I am quite picky concerning sound design and style. But especially Fengler's track Jaz fully delivers in these regards. I could go on and talk about this song all day and night. It is just so beautiful.
 
-It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+If you like this playlist, consider leaving a like and check out these other playlists I recently created.
 
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-
-It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
