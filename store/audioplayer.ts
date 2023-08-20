@@ -3,10 +3,12 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
   const currentAudioId = ref()
   const currentAudioIndex = ref()
   const playlistData = ref()
+  const isPlaying = ref(false)
 
   function setCurrentAudioId(id: string): void {
     currentAudioId.value = id
   }
+
   function setCurrentAudioIdByIndex(index: number): void {
     currentAudioId.value =
       playlistData.value[index]?.snippet?.resourceId?.videoId
@@ -16,15 +18,15 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
     )
   }
 
-  function setPlaylistData(data: object) {
+  function setPlaylistData(data: object): void {
     playlistData.value = data
   }
 
-  function setCurrentAudioIndex(index: number) {
+  function setCurrentAudioIndex(index: number): void {
     currentAudioIndex.value = index
   }
 
-  function decrementCurrentAudioIndex() {
+  function decrementCurrentAudioIndex(): void {
     currentAudioIndex.value--
   }
 
@@ -34,9 +36,14 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
     console.log(currentAudioIndex.value)
   }
 
+  function setIsPlaying(bool: boolean): void {
+    isPlaying.value = bool
+  }
+
   return {
     setCurrentAudioId,
     playlistData,
+    isPlaying,
     setPlaylistData,
     currentAudioId,
     currentAudioIndex,
@@ -44,5 +51,6 @@ export const useAudioplayerStore = defineStore('audioplayer', () => {
     decrementCurrentAudioIndex,
     incrementCurrentAudioIndex,
     setCurrentAudioIdByIndex,
+    setIsPlaying
   }
 })

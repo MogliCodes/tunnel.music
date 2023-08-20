@@ -11,7 +11,10 @@
 
 <script setup lang="ts">
 import { useAudioplayerStore } from '~/store/audioplayer'
+import {storeToRefs} from "pinia";
 const audioPlayerStore = useAudioplayerStore()
+const { isPlaying } = storeToRefs(audioPlayerStore)
+
 
 type Props = {
   audioFile: string
@@ -29,7 +32,11 @@ watch(shouldPlay, () => {
   playCommentary()
 })
 
-let audio
+// watch(isPlaying, () => {
+//   onAudioEnded()
+// })
+
+let audio: HTMLAudioElement | null
 audio = new Audio(props.audioFile)
 
 function playCommentary() {

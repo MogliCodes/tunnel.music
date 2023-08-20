@@ -22,6 +22,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@pinia/nuxt": "^0.4.11",
     "@types/node": "^18.17.6",
+    "@types/youtube-player": "^5.5.7",
     "@vueuse/core": "^9.13.0",
     "eslint-plugin-prettier": "^4.2.1",
     "howler": "^2.2.3",

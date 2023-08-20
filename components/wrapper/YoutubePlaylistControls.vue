@@ -3,6 +3,9 @@
     <div class="flex h-full items-center justify-center gap-4">
       <div
         class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
+        :class="{
+        'opacity-40 pointer-events-none': audioPlayerStore.currentAudioIndex === 0
+        }"
         @click="playPrev()"
       >
         <img
@@ -14,16 +17,27 @@
       <div
         class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-black"
         @click="togglePlay"
+
       >
         <img
-          class="relative -right-1 h-full w-full p-4"
+          v-if="audioPlayerStore.isPlaying"
+          class="relative h-full w-full p-4"
+          src="/player-control-04.svg"
+          alt=""
+        />
+        <img
+          v-else
+          class="relative -right-1  h-full w-full p-4"
           src="/player-control-02.svg"
           alt=""
         />
       </div>
       <div
-        class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
+        class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black "
         @click="playNext"
+        :class="{
+        'opacity-40 pointer-events-none': isLastSong
+        }"
       >
         <img
           class="relative h-full w-full p-3.5"
@@ -40,6 +54,15 @@ import { useAudioplayerStore } from '~/store/audioplayer'
 
 const audioPlayerStore = useAudioplayerStore()
 const emit = defineEmits(['togglePlay'])
+
+const playButtonPath = computed<string>(() => {
+  return audioPlayerStore.isPlaying.value ? '/player-control-02.svg' : '/player-control-04.svg'
+})
+
+const isLastSong = computed<boolean>(() => {
+  return audioPlayerStore.currentAudioIndex === audioPlayerStore.playlistData?.length - 1
+})
+
 function playPrev() {
   audioPlayerStore.decrementCurrentAudioIndex()
   audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
@@ -49,10 +72,12 @@ function playPrev() {
 function playNext() {
   audioPlayerStore.incrementCurrentAudioIndex()
   audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
+  audioPlayerStore.setIsPlaying(false)
   console.log('playNext')
 }
 
 function togglePlay() {
+  audioPlayerStore.setIsPlaying(!audioPlayerStore.isPlaying)
   console.log('togglePlay')
   emit('togglePlay')
 }

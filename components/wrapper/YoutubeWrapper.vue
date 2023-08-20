@@ -62,7 +62,11 @@ const { data, pending }: ApiResponse = await useFetch(
 
 watch(pending, () => {
   if (!pending.value) {
-    mergeData(data?.value?.items, props.comments)
+    if(props.comments) {
+      mergeData(data?.value?.items, props.comments)
+    } else {
+      mergedData.value = data?.value?.items
+    }
     audioStore.setPlaylistData(mergedData.value)
     initPlaylist()
   }

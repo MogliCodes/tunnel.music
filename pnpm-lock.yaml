@@ -17,6 +17,9 @@ dependencies:
   '@types/node':
     specifier: ^18.17.6
     version: 18.17.6
+  '@types/youtube-player':
+    specifier: ^5.5.7
+    version: 5.5.7
   '@vueuse/core':
     specifier: ^9.13.0
     version: 9.13.0(vue@3.3.4)
@@ -1586,6 +1589,10 @@ packages:
 
   /@types/web-bluetooth@0.0.16:
     resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
+    dev: false
+
+  /@types/youtube-player@5.5.7:
+    resolution: {integrity: sha512-W8F4eoTIvzXeNrT3JroQPimZLXnlJA8smYygHZUKFPVoYwgs/OhJkA1VBhL3iSs57OQkuINqHlY4SmMT5wtnJg==}
     dev: false
 
   /@types/youtube@0.0.39:
