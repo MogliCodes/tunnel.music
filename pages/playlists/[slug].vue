@@ -7,7 +7,7 @@
       <div class="w-1/2">
         <client-only>
           <YoutubeWrapper
-            :comments="page?.comments"
+            :comments="page?.comments || []"
             :playlist-id="page?.playlistId"
           />
         </client-only>
@@ -18,8 +18,11 @@
 
 <script setup>
 import YoutubeWrapper from '~/components/wrapper/YoutubeWrapper.vue'
+import {useAudioplayerStore} from "~/store/audioplayer";
+const audioStore = useAudioplayerStore()
 
 const { page } = useContent()
+audioStore.clearPlaylistData()
 </script>
 
 <style>

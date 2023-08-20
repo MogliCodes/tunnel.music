@@ -10,7 +10,7 @@
         :audio-id="audioStore.currentAudioId"
       />
       <div v-else class="h-[360px] w-full bg-pink-500"></div>
-      <YoutubePlaylistControls @toggle-play="togglePlay" />
+      <YoutubePlaylistControls />
       <YoutubePlaylist
         :youtube-tracks="data?.items"
         :comments="props.comments"
@@ -59,6 +59,8 @@ const mergedData: Ref<MergedData | null> = ref(null)
 const { data, pending }: ApiResponse = await useFetch(
   `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${props.playlistId}&key=${API_KEY}`,
 )
+
+
 
 watch(pending, () => {
   if (!pending.value) {

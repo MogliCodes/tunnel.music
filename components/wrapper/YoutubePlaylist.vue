@@ -17,6 +17,7 @@
           :is-active="isActive(index)"
           :playlist-index="item?.index"
           :audio-file="item?.path"
+          :text="item?.text"
         />
       </div>
     </div>

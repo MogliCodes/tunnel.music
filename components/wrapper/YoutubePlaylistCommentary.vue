@@ -4,8 +4,7 @@
     :class="{ 'bg-gray-600 font-bold': props.isActive }"
     @click="playCommentary"
   >
-    Kommentar #{{ playlistIndex }}
-    {{ audioFile }}
+    <span class="text-white">{{ props.text }}</span>
   </div>
 </template>
 
@@ -20,6 +19,7 @@ type Props = {
   audioFile: string
   playlistIndex: number
   isActive: boolean
+  text: string
 }
 
 const props = defineProps<Props>()
