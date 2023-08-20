@@ -42,6 +42,7 @@ audio = new Audio(props.audioFile)
 function playCommentary() {
   if (!audio) return
   audioPlayerStore.setCurrentAudioIndex(props.playlistIndex)
+  audioPlayerStore.setIsPlaying(true)
   audio.play()
   audio.addEventListener('ended', onAudioEnded)
 }

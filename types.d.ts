@@ -7,11 +7,19 @@ type YoutubeItem = {
         resourceId: {
             videoId: string
         }
+        title
     }
+    type: string
 }
 type ApiResponse = {
     data: Ref | null
     pending: Ref<boolean>
 }
-type MergedDataItem = YoutubeItem | object
-type MergedData = MergedDataItem[]
+type PlaylistComment = {
+    path: string
+    index: number
+    text: string
+    type: string
+  }
+  
+type PlaylistData = Array<YoutubeItem | PlaylistComment>

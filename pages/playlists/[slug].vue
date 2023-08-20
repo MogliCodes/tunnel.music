@@ -2,14 +2,13 @@
   <main>
     <div class="flex gap-24">
       <div class="w-1/2">
-        <ContentDoc />
+        <ContentDoc/>
       </div>
       <div class="w-1/2">
         <client-only>
-          <YoutubeWrapper
-            :comments="page?.comments || []"
-            :playlist-id="page?.playlistId"
-          />
+          <PlaylistWrapper
+              :comments="page?.comments || []"
+              :playlist-id="page?.playlistId"/>
         </client-only>
       </div>
     </div>
@@ -17,11 +16,12 @@
 </template>
 
 <script setup>
-import YoutubeWrapper from '~/components/wrapper/YoutubeWrapper.vue'
 import {useAudioplayerStore} from "~/store/audioplayer";
+import PlaylistWrapper from "~/components/playlist/PlaylistWrapper.vue";
+
 const audioStore = useAudioplayerStore()
 
-const { page } = useContent()
+const {page} = useContent()
 audioStore.clearPlaylistData()
 </script>
 
