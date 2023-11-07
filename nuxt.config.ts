@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      script: [{src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'}]
+    }
+  },
   runtimeConfig: {
     public: {
       spotify: {

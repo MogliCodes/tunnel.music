@@ -1,12 +1,15 @@
 <template>
   <nav>
     <ul>
-      <li class="mr-2 inline-block dark:bg-gray-900">
-        <nuxt-link class="block px-4 py-2" to="/albums">albums</nuxt-link>
+      <li class="inline-block">
+        <nuxt-link active-class="dark:bg-text dark:text-gray-90" class="block rounded-md mr-2 inline-block dark:bg-gray-90 text-gray-20 px-4 py-2" to="/albums">albums</nuxt-link>
       </li>
-      <li class="mr-2 inline-block dark:bg-gray-900">
-        <nuxt-link class="block px-4 py-2" to="/playlists">playlists</nuxt-link>
+      <li class="inline-block">
+        <nuxt-link active-class="dark:bg-text dark:text-gray-90" class="block rounded-md mr-2 inline-block dark:bg-gray-90 text-gray-20 px-4 py-2" to="/playlists">playlists</nuxt-link>
       </li>
+
     </ul>
   </nav>
 </template>
+<script setup lang="ts">
+</script>

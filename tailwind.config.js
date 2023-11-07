@@ -14,12 +14,18 @@ module.exports = {
   theme: {
     fontFamily: {
       mono: ['IBM Plex Mono'],
-      sans: ['Poppins'],
-      display: ['Chewy'],
+      sans: ['Public Sans'],
+      display: ['Detacher'],
+    },
+    colors: {
+      gray: {
+        90: '#1D1D26',
+        20: '#aaa'
+      }
     },
     extend: {
       colors: {
-        background: '#1c2739',
+        background: '#07070D',
         foreground: '#c1c1c1',
         infoForeground: '#d7ff18c1',
         selectionBackground: '#39487e',
@@ -31,13 +37,13 @@ module.exports = {
         errorForeground: '#b5b5b5',
         disabledText: '#adadad',
         'Borders.ContrastBorderColor': '#0e1624',
-        borderColor: '#151d2c',
+        borderColor: '#1D1D26',
         disabledBorderColor: '#0d1022',
         focusColor: '#25334b',
         focusedBorderColor: '#2b416a',
         separatorColor: '#1d304b',
         lineNumbersColor: '#8d9296',
-        text: '#ffca1ec0',
+        text: '#FE458F',
       },
     },
   },

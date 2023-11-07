@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="flex gap-24">
-      <div class="w-1/2">
+      <div class="content w-1/2">
         <ContentDoc/>
       </div>
       <div class="w-1/2">
@@ -25,7 +25,13 @@ const {page} = useContent()
 audioStore.clearPlaylistData()
 </script>
 
-<style>
+<style scoped>
+.content h1 {
+  @apply font-display;
+}
+.content p {
+  @apply text-gray-20;
+}
 p {
   margin-bottom: 2rem;
 }

@@ -1,11 +1,14 @@
 <template>
-  <main>
-    <div class="w-8/12">
-      <h1 class="mb-16 text-7xl">music for getting into the tunnel mode</h1>
-      <p class="text-3xl">
-        this is tunnel.music. a place where you can find good music when you
-        need to get into the tunnel mode.
-      </p>
+  <main class="flex justify-center">
+    <div class="relative flex flex-col gap-12 items-start z-20 w-7/12">
+      <h1 class="font-display text-8xl uppercase">music for getting into the tunnel</h1>
+      <div class="w-1/2">
+        <p class="font-sans text-sm">
+          Dive into a world of carefully selected tunes, designed to help you enter the tunnel mode effortlessly. Immerse yourself in a seamless blend of melodies, transforming your workspace into a haven of productivity.
+        </p>
+      </div>
+      <NuxtLink class="px-4 py-2 bg-gray-90 inline-block rounded-md text-sm text-gray-20" to="/albums">Browse albums</NuxtLink>
     </div>
+
   </main>
 </template>

@@ -1,15 +1,18 @@
 <template>
-  <div class="min-h-screen font-mono dark:bg-background dark:text-text">
-    <AppHeader ref="appHeader" />
-    <AppContainer :style="contentStyle" class="py-24">
+  <div class="min-h-screen dark:bg-background dark:text-text">
+    <AppHeader class="relative z-20" ref="appHeader" />
+    <AppContainer :style="contentStyle" class="relative z-20 py-24">
       <NuxtPage><slot /></NuxtPage>
     </AppContainer>
-    <AppFooter ref="appFooter" />
+    <AppFooter class="relative z-20" ref="appFooter" />
+    <client-only>
+      <AppBackground class="z-10 opacity-40 blur-lg" />
+    </client-only>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useWindowSize } from '@vueuse/core'
 
 const { height } = useWindowSize()
@@ -33,9 +36,3 @@ onMounted(() => {
 })
 </script>
 
-<style>
-main h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
-</style>

@@ -1,10 +1,10 @@
 <template>
-  <article>
+  <article class="rounded-md overflow-hidden">
     <figure>
-      <img class="aspect-square w-full" :src="attrs?.cover" alt="" />
+      <img class="aspect-square w-full grayscale brightness-50 hover:brightness-100 hover:grayscale-0 transition duration-1000" :src="attrs?.cover" alt="" />
     </figure>
-    <figcaption>
-      <h2 class="mt-4">{{ attrs.title }}</h2>
+    <figcaption class="p-4 bg-gray-90">
+      <h2 class="mt-2 text-gray-20">{{ attrs.title }}</h2>
     </figcaption>
   </article>
 </template>
