@@ -1,11 +1,11 @@
 <template>
-    <div v-if="audioPlayerStore.currentAudioId">
-        <span>YouTube</span>
+    <div class="h-full" v-if="audioPlayerStore.currentAudioId">
         <YouTube
             v-if="iframeSrc"
             ref="youtube"
             :width="`100%`"
-            class="w-full"
+            class="w-full h-full"
+            height="100%"
             :src="iframeSrc"
             @state-change="stateChange"
             />
@@ -20,7 +20,7 @@ import {storeToRefs} from "pinia";
 
 const audioPlayerStore = useAudioplayerStore()
 const { isPlaying, currentAudioId } = storeToRefs(audioPlayerStore)
-const youtube  = ref<YouTubePlayer | null>(null) 
+const youtube  = ref<YouTubePlayer | null>(null)
 
 const iframeSrc = computed<string>(() => {
   return `https://www.youtube.com/watch?v=${audioPlayerStore.currentAudioId}`
@@ -29,7 +29,10 @@ const iframeSrc = computed<string>(() => {
 onMounted(() => {
     if(!youtube || !youtube.value) return
     if(isPlaying.value) {
-        youtube.value.playVideo() 
+        setTimeout(() => {
+          youtube.value.playVideo()
+        }, 2000);
+        console.log("should play")
     } else {
         youtube.value.pauseVideo()
         console.log("SHOULD PAUSE")
@@ -40,7 +43,7 @@ watch(isPlaying, () => {
     console.log('isplaying', isPlaying)
     if(!youtube || !youtube.value) return
     if(isPlaying.value) {
-        youtube.value.playVideo() 
+        youtube.value.playVideo()
     } else {
         youtube.value.pauseVideo()
         console.log("SHOULD PAUSE")
