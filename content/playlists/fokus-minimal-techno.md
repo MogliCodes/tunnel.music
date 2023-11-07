@@ -1,18 +1,14 @@
 ---
-title: 'FOKUS: Ambient Techno'
+title: 'FOKUS: Minimal Techno'
 description: 'test'
 type: 'playlist'
 platform: 'youtube'
 genres: 'Ambient, Video Game Music'
 release: '04-03-2011'
-playlistId: 'PLcloqkphBqS2QVSHKpW9DjCweO9jji-vN'
+playlistId: 'PLcloqkphBqS0o-Imt9Dq8nW1fNmIwSXsA'
 navigation:
-  cover: '/img/cover_fokus_techno.webp'
-#comments:
-#    c1: {path: '/nothing-is-real-001.m4a', index: 1}
-#    c2: {path: '/nothing-is-real-001.m4a', index: 4}
-comments: 
-    [{path: '/test.m4a', index: 1, text: 'Die Ableton-Urväter und Eiswüsten'}, {path: '/nothing-is-real-001.m4a', index: 4, text: 'Die Ableton-Urväter und Eiswüsten'}]
+  cover: '/img/cover_something.png'
+
 ---
 
 # FOKUS: Ambient Techno
