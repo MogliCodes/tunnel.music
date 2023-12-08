@@ -1,0 +1,1 @@
+import{_ as t}from"./YoutubeWrapper.vue.25a6fed4.js";import{c as e,g as r,b as o}from"./entry.ca74a3a7.js";import"./asyncData.023b2b06.js";import"./_commonjsHelpers.de833af9.js";import"./audioplayer.1a1427e4.js";const l={__name:"test",setup(a){return(c,m)=>(o(),e("div",null,[r(t)]))}};export{l as default};

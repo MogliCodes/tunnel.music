@@ -1,1 +1,0 @@
-import{d as r,b as t,c as l,e as a}from"./entry.633b7bd9.js";const c=["src"],s=r({__name:"SpotifyEmbed",props:{url:{type:String,required:!0}},setup(e){return(n,o)=>(t(),l("div",null,[a("iframe",{src:e.url,width:"100%",height:"600",allowfullscreen:"",allow:"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture",loading:"lazy"},null,8,c)]))}});export{s as _};
