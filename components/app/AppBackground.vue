@@ -16,7 +16,7 @@ var renderer, scene, camera, light, circles;
 
 var ww      = window.innerWidth,
     wh          = window.innerHeight,
-    speed       = .1,
+    speed       = .05,
     mouseX       = 0,
     colors      = [
       0x05060B, 0x0C0E15, 0x13151D, 0x1B1D24, 0x22252C, 0x292D33, 0x05060B, 0x0C0E15, 0x13151D, 0x1B1D24, 0x22252C, 0x292D33
@@ -58,7 +58,7 @@ var createCircles = function(){
   circles = new THREE.Object3D();
   scene.add(circles);
 
-  for(var i=0;i<20;i++){
+  for(var i=0;i<100;i++){
     addCircle();
   }
   render();
@@ -97,7 +97,7 @@ var addCircle = function(top){
     });
     var circleGeometry = new THREE.CircleGeometry( radius, segments );
     var circle = new THREE.Mesh( circleGeometry, material );
-    var translate = new THREE.Matrix4().makeTranslation(30,0,0);
+    var translate = new THREE.Matrix4().makeTranslation(80,0,0);
     var rotation =  new THREE.Matrix4().makeRotationZ(Math.PI*2/12*j+row.degreesRotation*.3);
     circle.applyMatrix( new THREE.Matrix4().multiplyMatrices(rotation, translate) );
     row.add(circle);

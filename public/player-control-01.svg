@@ -1,1 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134.51 164.1"><path d="m126.59,163.12L22,86.06c-2.7-1.99-2.7-6.02,0-8.01L126.59.98c3.29-2.42,7.93-.08,7.93,4.01v154.13c0,4.08-4.64,6.43-7.93,4.01Z" style="fill:#ffca1e;"/><rect y="3.23" width="19.97" height="160.87" rx="4.81" ry="4.81" transform="translate(19.97 167.34) rotate(180)" style="fill:#ffca1e;"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 134.51 164.1">
+    <path d="m126.59,163.12L22,86.06c-2.7-1.99-2.7-6.02,0-8.01L126.59.98c3.29-2.42,7.93-.08,7.93,4.01v154.13c0,4.08-4.64,6.43-7.93,4.01Z"
+          style="fill:#FE458F;"/>
+    <rect y="3.23" width="19.97" height="160.87" rx="4.81" ry="4.81" transform="translate(19.97 167.34) rotate(180)"
+          style="fill:#FE458F;"/>
+</svg>

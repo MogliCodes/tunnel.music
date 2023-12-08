@@ -2,7 +2,7 @@
     <div class="h-20 w-full bg-black bg-opacity-30">
       <div class="flex h-full items-center justify-center gap-4">
         <div
-          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
+          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-gray-100"
           :class="{
           'opacity-40 pointer-events-none': audioPlayerStore.currentAudioIndex === 0
           }"
@@ -15,7 +15,7 @@
           />
         </div>
         <div
-          class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-black"
+          class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-gray-100"
           @click="togglePlay"
   
         >
@@ -33,7 +33,7 @@
           />
         </div>
         <div
-          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black "
+          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-gray-100 "
           @click="playNext"
           :class="{
           'opacity-40 pointer-events-none': isLastSong

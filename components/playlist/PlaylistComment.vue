@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'bg-gray-600 font-bold': isActive }" class="cursor-pointer border-t-2 border-white p-4">
+    <div :class="{ 'bg-gray-600 font-bold': isActive }" class="cursor-pointer border-t-2 border-gray-20 text-gray-20 p-4">
         <span>{{ comment.text }}</span>
     </div>
 </template>

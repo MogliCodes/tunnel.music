@@ -10,6 +10,22 @@ module.exports = {
     'grid-cols-7',
     'grid-cols-8',
     'grid-cols-9',
+    'md:grid-cols-2',
+    'md:grid-cols-3',
+    'md:grid-cols-4',
+    'md:grid-cols-5',
+    'md:grid-cols-6',
+    'md:grid-cols-7',
+    'md:grid-cols-8',
+    'md:grid-cols-9',
+    'lg:grid-cols-2',
+    'lg:grid-cols-3',
+    'lg:grid-cols-4',
+    'lg:grid-cols-5',
+    'lg:grid-cols-6',
+    'lg:grid-cols-7',
+    'lg:grid-cols-8',
+    'lg:grid-cols-9',
   ],
   theme: {
     fontFamily: {
@@ -19,6 +35,7 @@ module.exports = {
     },
     colors: {
       gray: {
+        100: '#07070D',
         90: '#1D1D26',
         20: '#aaa'
       }

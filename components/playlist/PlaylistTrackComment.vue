@@ -28,7 +28,7 @@ onMounted(() => {
         audioPlayerStore.setCurrentTypeByIndex(audioPlayerStore.currentAudioIndex)
         audioPlayerStore.setCurrentCommentPathByIndex(audioPlayerStore.currentAudioIndex)
         audioPlayerStore.setIsCommentary(!!audioPlayerStore.currentCommentPath)
-        audioPlayerStore.setIsPlaying(true)
+        // audioPlayerStore.setIsPlaying(true)
     };
 
     audioPlayer.value.onpause = function() {

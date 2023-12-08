@@ -5,8 +5,9 @@
       <NuxtPage><slot /></NuxtPage>
     </AppContainer>
     <AppFooter class="relative z-20" ref="appFooter" />
+    <div class="bg-gray-90 h-10 w-full fixed bottom-0 z-50"></div>
     <client-only>
-      <AppBackground class="z-10 opacity-40 blur-lg" />
+      <AppBackground class="z-10 opacity-80 blur-md" />
     </client-only>
   </div>
 </template>

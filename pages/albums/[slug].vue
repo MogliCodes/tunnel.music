@@ -1,16 +1,18 @@
 <template>
   <main>
     <section v-if="page && page?.type === 'album'">
-      <div class="grid grid-cols-2 gap-8">
-        <div>
-          <AlbumDetail />
+      <BaseContainer>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <AlbumDetail />
+          </div>
+          <div class="sticky top-0">
+            <youtube-embed :url="youtubeUrl"></youtube-embed>
+            <br>
+            <spotify-embed v-if="page.spotifyId" :url="spotifyUrl"></spotify-embed>
+          </div>
         </div>
-        <div class="sticky top-0">
-          <youtube-embed :url="youtubeUrl"></youtube-embed>
-          <br>
-          <spotify-embed :url="spotifyUrl"></spotify-embed>
-        </div>
-      </div>
+      </BaseContainer>
     </section>
   </main>
 </template>

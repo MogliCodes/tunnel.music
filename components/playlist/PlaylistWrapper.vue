@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <PlaylistTrack />
+  <div v-if="playlistData" class="bg-gray-90 rounded-md overflow-hidden">
+    <PlaylistTrack class="grayscale" />
     <PlaylistControls />
     <PlaylistTracklist :playlist-items="playlistData" />
   </div>
@@ -42,12 +42,13 @@ watch(pending, () => {
     audioStore.setPlaylistData(playlistData.value)
     initPlaylist()
   }
-})
+}, { immediate: true })
 
 function initPlaylist() {
   if (!audioStore.currentAudioId && !audioStore.currentAudioIndex) {
     audioStore.setCurrentAudioIndex(0)
     audioStore.setCurrentAudioIdByIndex(0)
+    audioStore.setIsPlaying(false)
   }
 }
 
