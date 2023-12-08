@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: true,
+  ssr: false,
   app: {
     head: {
       script: [{src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'}]
@@ -21,5 +21,8 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@pinia/nuxt'],
   content: {
     documentDriven: true,
+    experimental: {
+      clientDb: true
+    }
   },
 })

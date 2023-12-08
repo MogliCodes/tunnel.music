@@ -6,11 +6,11 @@
           <ContentDoc/>
         </div>
         <div class="w-1/2">
-          <client-only>
-            <PlaylistWrapper
-                :comments="page?.comments || []"
-                :playlist-id="page?.playlistId"/>
-          </client-only>
+<!--          <client-only>-->
+<!--            <PlaylistWrapper-->
+<!--                :comments="page?.comments || []"-->
+<!--                :playlist-id="page?.playlistId"/>-->
+<!--          </client-only>-->
         </div>
       </div>
     </BaseContainer>
