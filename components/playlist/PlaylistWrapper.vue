@@ -1,6 +1,6 @@
 <template>
   <div v-if="playlistData" class="bg-gray-90 rounded-md overflow-hidden">
-    <PlaylistTrack class="grayscale" />
+    <PlaylistTrack />
     <PlaylistControls />
     <PlaylistTracklist :playlist-items="playlistData" />
   </div>
@@ -8,7 +8,6 @@
 
 <script setup lang="ts">
 import type { PlaylistComment, YoutubeItem } from "~/types.d.ts";
-import {Ref} from "vue";
 import { useAudioplayerStore } from '~/store/audioplayer'
 
 type Props = {
@@ -44,6 +43,14 @@ watch(pending, () => {
   }
 }, { immediate: true })
 
+watch(props.comments, () => {
+  if (props.comments) {
+    playlistData.value = mergeData(data?.value?.items, props.comments)
+    audioStore.setPlaylistData(playlistData.value)
+    initPlaylist()
+  }
+})
+
 function initPlaylist() {
   if (!audioStore.currentAudioId && !audioStore.currentAudioIndex) {
     audioStore.setCurrentAudioIndex(0)
@@ -53,12 +60,22 @@ function initPlaylist() {
 }
 
 function mergeData(dataYoutube: YoutubeItem[], dataComments: PlaylistComment[]) {
-  const youtubeDataEnriched = dataYoutube.map(item => ({...item, type: "PlaylistYoutubeTrack"}))
-  const mergedData: Array<YoutubeItem | PlaylistComment> = [...youtubeDataEnriched]
-  dataComments.map(comment => ({...comment, type: "PlaylistComment"})).forEach(comment => {
-    mergedData.splice(comment.index, 0, comment);
-  })
-  return mergedData
+  const youtubeDataEnriched = dataYoutube?.map(item => ({ ...item, type: "PlaylistYoutubeTrack" }));
+  if (youtubeDataEnriched && typeof youtubeDataEnriched[Symbol.iterator] === 'function') {
+    const mergedData: Array<YoutubeItem | PlaylistComment> = [...youtubeDataEnriched];
+
+    dataComments.forEach(comment => {
+      const enrichedComment = { ...comment, type: "PlaylistComment" };
+      mergedData.splice(enrichedComment.index, 0, enrichedComment);
+    });
+
+    return mergedData;
+  }
+
+  // If youtubeDataEnriched is not iterable, you might want to handle it differently.
+  // For now, returning an empty array as a default value.
+  return [];
 }
+
 
 </script>

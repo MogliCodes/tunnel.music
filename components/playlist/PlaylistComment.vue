@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { PlaylistComment } from 'types';
 
+import type {PlaylistComment} from "~/types";
 
 type Props = {
     comment: PlaylistComment

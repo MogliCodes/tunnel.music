@@ -1,16 +1,16 @@
 <template>
   <main>
     <BaseContainer>
-      <div class="flex gap-24">
-        <div class="content w-1/2">
+      <div class="flex-col lg:flex-row flex gap-24">
+        <div class="content w-full lg:w-1/2">
           <ContentDoc/>
         </div>
-        <div class="w-1/2">
-<!--          <client-only>-->
-<!--            <PlaylistWrapper-->
-<!--                :comments="page?.comments || []"-->
-<!--                :playlist-id="page?.playlistId"/>-->
-<!--          </client-only>-->
+        <div class="w-full lg:w-1/2">
+          <client-only>
+            <PlaylistWrapper
+                :comments="page?.comments || []"
+                :playlist-id="page?.playlistId"/>
+          </client-only>
         </div>
       </div>
     </BaseContainer>

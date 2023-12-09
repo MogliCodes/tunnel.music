@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { YoutubeItem } from 'types';
-
+import type {YoutubeItem} from "~/types";
 
 type Props = {
     youtubeTrack: YoutubeItem

@@ -31,6 +31,6 @@ const query: QueryBuilderParams = {
 const columnCount = ref(4)
 
 const columnClass = computed<string>(() => {
-  return columnCount.value ? `grid-cols-1 lg:grid-cols-${columnCount.value}` : 'grid-cols-2 lg:grid-cols-3'
+  return columnCount.value ? `grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-${columnCount.value}` : 'grid-cols-2 lg:grid-cols-3'
 })
 </script>

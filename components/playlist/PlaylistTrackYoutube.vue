@@ -1,20 +1,22 @@
 <template>
     <div>
-      <div class="h-full aspect-video" v-if="audioPlayerStore.currentAudioId">
+      <div class="h-full aspect-video grayscale hover:grayscale-0 transition-all" v-if="audioPlayerStore.currentAudioId">
         <YoutubeVue3 ref="youtube" :videoid="audioPlayerStore.currentAudioId"
                      @ended="ended"
                      @paused="paused"
                      @played="played"
-                     :controls="0"
+                     :controls="1"
         />
 
 
       </div>
-      <div>
-        {{ remainingTime }} /
-        {{ duration }}
+      <div class="relative h-2 bg-gray-100 bg-opacity-50">
+        <div class="absolute top-0 left-0 h-2 bg-text" :style="progressBarStyle"></div>
+        <div class="absolute top-2 flex justify-between w-full">
+          <span class="text-xs p-1">{{ remainingTime }}</span>
+          <span class="text-xs p-1">{{ duration }}</span>
+        </div>
       </div>
-      <div class="h-2 bg-text" :style="progressBarStyle"></div>
     </div>
 </template>
 
@@ -22,7 +24,7 @@
 import { YoutubeVue3 } from 'youtube-vue3'
 
 import {useAudioplayerStore} from '~/store/audioplayer'
-import {YouTubePlayer} from "youtube-player/dist/types";
+import type {YouTubePlayer} from "youtube-player/dist/types";
 import {storeToRefs} from "pinia";
 
 interface YoutubeVue3Ref extends YouTubePlayer{
