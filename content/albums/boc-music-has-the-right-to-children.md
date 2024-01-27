@@ -11,7 +11,7 @@ release: '20-04-1998'
 <music-genre-list :genres="genres"></music-genre-list>
 
 # Boards of Canada – Music has the right to children
-Commentary coming soon...
+Commentary coming soon test test...
 
 
 
