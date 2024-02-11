@@ -6,7 +6,7 @@ album: 'Loop-finding-jazz-records'
 type: 'album'
 genres: 'Glitch, Ambient Techno, Microhouse, Microhouse, Ambient Dub'
 navigation:
-    cover: 'https://e.snmc.io/i/600/w/cb018c35f005cf9a541d7798a692571a/2814171/jan-jelinek-loop-finding-jazz-records-Cover-Art.jpg'
+    cover: 'https://e.snmc.io/i/600/w/64136560c6e96fb15354d60a0a37b29e/2814171/jan-jelinek-loop-finding-jazz-records-Cover-Art.jpg'
 release: '12-06-1990'
 ---
 
