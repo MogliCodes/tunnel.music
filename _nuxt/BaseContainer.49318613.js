@@ -1,0 +1,1 @@
+import{l as o,b as t,c as n,b7 as c}from"./entry.2a07e6a4.js";const s={},r={class:"px-8 container mx-auto"};function _(e,a){return t(),n("div",r,[c(e.$slots,"default")])}const d=o(s,[["render",_]]);export{d as _};

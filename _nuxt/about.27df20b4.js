@@ -1,1 +1,0 @@
-import{l as t,c as o,b as n,e}from"./entry.2c30b959.js";const s={},c=e("h1",{class:"font-display uppercase text-8xl mb-8"},"about",-1),a=e("p",null," this is tunnel.music. a place where you can find good music when you need to get into the tunnel mode. ",-1),l=[c,a];function i(r,u){return n(),o("main",null,l)}const d=t(s,[["render",i]]);export{d as default};
