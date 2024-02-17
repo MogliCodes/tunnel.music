@@ -20,7 +20,7 @@
   @apply text-gray-20;
 }
 .content p a {
-  border-bottom: 2px solid white;
+  @apply text-text;
 }
 .content p a:hover {
   color: white;

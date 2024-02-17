@@ -4,7 +4,8 @@
       <BaseContainer>
         <div class="grid md:grid-cols-2 gap-8">
           <div>
-            <AlbumDetail />
+            <AlbumDetail class="mb-8" />
+            <NuxtLink class="block rounded-md mr-2 inline-block dark:bg-gray-90 text-gray-20 px-4 py-2 text-sm" to="/albums">Back to albums</NuxtLink>
           </div>
           <div class="sticky top-0">
             <youtube-embed :url="youtubeUrl"></youtube-embed>

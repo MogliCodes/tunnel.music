@@ -2,9 +2,9 @@
 title: 'Brian Eno – Ambient 1: Music for Airports'
 type: 'album'
 genres: 'Ambient, Minimalism, Choral, Tape Music'
-youtubeId: 'PLs9zwqXsceUjAG0JQh4dBYlGmQovMRqMe'
-spotifyId: '6LZiNXaDvhzvnXUubVOmNU?si=bllGhcGdSKGLMtynV7prwg'
+youtubeId: 'OLAK5uy_mfRTetqFB_MtRhjeOxR5tp0uVfK1YH-Sw&si=deR4ReTJLdHyxsg8'
 navigation:
+    genres: 'Ambient, Minimalism, Choral, Tape Music'
     cover: 'https://e.snmc.io/i/600/w/32caab3accff26ad0679ff73dc794d69/10223980/brian-eno-ambient-1-music-for-airports-Cover-Art.png'
 release: '03-1978'
 ---
