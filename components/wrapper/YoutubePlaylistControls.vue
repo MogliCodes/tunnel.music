@@ -70,9 +70,11 @@ function playPrev() {
 }
 
 function playNext() {
+  temp = audioPlayerStore.currentAudioIndex + 1
+
   audioPlayerStore.incrementCurrentAudioIndex()
   audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
-  audioPlayerStore.setIsPlaying(false)
+  audioPlayerStore.setIsPlaying(true)
   console.log('playNext')
 }
 

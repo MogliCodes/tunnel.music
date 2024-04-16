@@ -11,6 +11,6 @@
 <script setup>
 const attrs = useAttrs()
 const genres = computed(() => {
-  return attrs.genres.split(',')
+  return []
 })
 </script>

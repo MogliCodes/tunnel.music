@@ -78,6 +78,7 @@
     audioPlayerStore.setCurrentTypeByIndex(audioPlayerStore.currentAudioIndex)
     audioPlayerStore.setCurrentCommentPathByIndex(audioPlayerStore.currentAudioIndex)
     audioPlayerStore.setIsCommentary(!!audioPlayerStore.currentCommentPath)
+    audioPlayerStore.setIsPlaying(true)
   }
   
   function togglePlay() {
