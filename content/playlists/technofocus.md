@@ -7,7 +7,7 @@ genres: 'Ambient, Video Game Music'
 release: '04-03-2011'
 playlistId: 'PLcloqkphBqS0nqtI7EPNeYZ9nuej6wimo'
 navigation:
-  cover: '/img/cover_something.png'
+  cover: '/img/test4.png'
 
 ---
 
