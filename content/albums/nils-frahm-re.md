@@ -9,7 +9,7 @@ navigation:
     cover: 'https://www.nilsfrahm.com/wp-content/uploads/2014/02/NF_Screws_front-455x455.jpg'
 release: '04-03-2011'
 youtubeId: 'PLVjWWIQMML6AadZZQN6GV3GCQAoxLGO44'
-spotifyId: '2jp10nhpPcZkuUaFougyN3'
+spotifyId: '2jp10nhpPcZkuUaFougyN3?si=413VDuCrQUaoZzEBZMWEzw'
 ---
 
 <music-genre-list :genres="genres"></music-genre-list>
