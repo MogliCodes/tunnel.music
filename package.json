@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/content": "^2.12.1",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/supabase": "^1.2.2",
     "csv-writer": "^1.6.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
@@ -20,6 +21,7 @@
     "fs": "0.0.1-security",
     "js-yaml": "^4.1.0",
     "nuxt": "3.11.2",
+    "nuxt-icon": "^0.6.10",
     "path": "^0.12.7"
   },
   "dependencies": {

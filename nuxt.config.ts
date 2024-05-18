@@ -18,13 +18,16 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@pinia/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@pinia/nuxt', "@nuxtjs/supabase", "nuxt-icon"],
   content: {
     documentDriven: true,
     experimental: {
       clientDb: true
     }
   },
+  supabase: {
+    redirect: false,
+  }
   // nitro: {
   //   prerender: {
   //     // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634580369

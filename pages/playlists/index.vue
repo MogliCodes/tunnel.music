@@ -8,7 +8,7 @@
         <ul class="grid gap-8" :class="columnClass">
           <li v-for="item in navigation?.[0].children" :key="item._path">
             <NuxtLink :to="item._path">
-              <MusicTeaser v-bind="item" />
+              <MusicTeaser v-bind="item" :is-liked="getUserLikes(item._path)" />
             </NuxtLink>
           </li>
         </ul>
@@ -31,4 +31,11 @@ const columnCount = ref(5)
 const columnClass = computed<string>(() => {
   return columnCount.value ? `grid-cols-1 md:grid-cols-${columnCount.value}` : 'grid-cols-1 md:grid-cols-3'
 })
+
+
+const userLikes: any = useState('userLikes')
+
+function getUserLikes(path: string) {
+  return userLikes?.value?.includes(path.split('/').pop())
+}
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen dark:bg-background dark:text-text">
-    <AppHeader class="relative z-20" ref="appHeader" />
+    <AppHeader class="relative z-30" ref="appHeader" />
     <AppContainer :class="appStore.tunnelMode ? 'tunnel-mode' : ''"  ref="appContainer" :style="contentStyle" class="transition-all duration-500 relative z-20 py-24">
       <NuxtPage><slot /></NuxtPage>
     </AppContainer>

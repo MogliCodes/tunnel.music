@@ -60,20 +60,15 @@ function formatTimeToSeconds(time: string) {
 function convertRemainingTimeToPercentage(remainingTime: string, duration: string) {
   const temp = formatTimeToSeconds(remainingTime)
   const temp2 = formatTimeToSeconds(duration)
-  console.log('temp', temp)
-  console.log('temp2', temp2)
   const temp3 = (formatTimeToSeconds(remainingTime) / formatTimeToSeconds(duration) * 100).toFixed(2)
-  console.log('temp3', temp3)
   return temp3
 }
 
 const progressBarStyle = ref('')
 
 function getProgressBarStyle(remainingTime: string, duration: string) {
-  console.log('remainingTime', remainingTime)
   const string = `width: ${convertRemainingTimeToPercentage(remainingTime, duration)}%`
   progressBarStyle.value = string
-  console.log('string', string)
   return string
 }
 
