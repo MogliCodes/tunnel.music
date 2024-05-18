@@ -3,11 +3,11 @@ name: 'FOKUS: Space Techno'
 description: 'test'
 platform: 'youtube'
 type: 'playlist'
-playlistId: 'PLBRKCREo3-C1xeyZhI3RPpDXQoyyKmmqt&si=Aq6GEV3VoPUWev-l'
+playlistId: 'PLjT1M1zlDfkTBxqYwauAYcuoibq5ceYa3'
+genres: ['Ambient Techno', 'Minimal Techno', 'Techno',]
 navigation:
   cover: '/img/test3.png'
 ---
 
 # FOKUS: Space Techno
 
-Commentary coming soon… 
