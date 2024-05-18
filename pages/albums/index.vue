@@ -52,6 +52,7 @@ function selectGenre(genre: string) {
 }
 
 async function getAlbumsByGenre(genre: string) {
+  if(genre === '*') return albums.value = await queryContent('albums').find() || []
   albums.value =  await queryContent('albums').where({ 'genres': { $contains: genre } }).find() || []
   // add genre as url param
   if(!window) return
