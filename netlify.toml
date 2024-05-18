@@ -1,3 +1,2 @@
 [build]
-  command = "pnpm install --frozen-lockfile && pnpm run build --shamefully-hoist --store=node_modules/.pnpm-store --store-dir=node_modules/.pnpm-store"
-  environment = { PNPM_VERSION = "9.1.1" }
+command = "pnpm run build"
