@@ -37,15 +37,20 @@ function collectGenresAsJson(directory) {
     files.forEach(file => {
         const frontMatter = parseFrontMatter(file);
         const genres = extractGenres(frontMatter);
-        genres.split(',').forEach(genre => {
-            if (genre.trim() !== '') {
-                allGenres.push(genre.trim());
-            }
-        })
+        if(typeof genres === 'string') {
+            genres.split(',').forEach(genre => {
+                if (genre.trim() !== '') {
+                    allGenres.push(genre.trim());
+                }
+            })
+        } else {
+            allGenres.push(genres);
+        }
+
     });
 
     // Remove duplicates and sort genres alphabetically
-    const uniqueSortedGenres = [...new Set(allGenres)].sort((a, b) => a.localeCompare(b));
+    const uniqueSortedGenres = [...new Set(allGenres.flat())].sort((a, b) => a.localeCompare(b));
     return uniqueSortedGenres;
 
 

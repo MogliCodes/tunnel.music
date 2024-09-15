@@ -48,6 +48,7 @@ watch(() => route.fullPath, async () => {
 }, { immediate: false });
 
 function selectGenre(genre: string) {
+  if(genre === genreFilter.value) return genreFilter.value = '*'
   genreFilter.value = genre
 }
 

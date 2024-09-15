@@ -6,7 +6,7 @@ album: 'Ágætis byrjun'
 type: 'album'
 genres: ['Post-Rock', 'Dream Pop', 'Ambient', 'Chamber Pop']
 navigation:
-  cover: https://e.snmc.io/i/600/w/c58982995795e71ec3e1fd8890acd6aa/2405956/sigur-ros-agaetis-byrjun-Cover-Art.jpg'
+  cover: '/img/sigur-ros-agaetis-byrjun-Cover-Art.webp'
 release: '12-06-1999'
 youtubeId: 'PLiN-7mukU_RHjxGCCYFDiuqAHpS-O_T0n&si=HTJv7Mxl0YnrNyiv'
 spotifyId: '1DMMv1Kmoli3Y9fVEZDUVC?si=s0LH85t9SNGSK1AVgRpHUw'

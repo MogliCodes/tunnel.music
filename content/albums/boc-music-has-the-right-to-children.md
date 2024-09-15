@@ -5,7 +5,7 @@ genres: ['IDM', 'Downtempo', 'Ambient', 'Trip Hop']
 youtubeId: 'PLcWA977eKB-PQonkP-S7UTTe60xK1Eeyi&si=YglKy0kWxda3Q-aK'
 spotifyId: '6LZiNXaDvhzvnXUubVOmNU?si=bllGhcGdSKGLMtynV7prwg'
 navigation:
-  cover: 'https://e.snmc.io/i/600/w/09841d8a94c8e0dadf9435f0c668258a/2371321/boards-of-canada-music-has-the-right-to-children-Cover-Art.jpg'
+  cover: '/img/boards-of-canada-music-has-the-right-to-children-Cover-Art.webp'
 release: '20-04-1998'
 ---
 <music-genre-list :genres="genres"></music-genre-list>
