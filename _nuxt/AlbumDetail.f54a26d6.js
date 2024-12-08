@@ -1,1 +1,0 @@
-import t from"./ContentDoc.9cf77d38.js";import{l as n,b as o,c as _,g as c}from"./entry.4b9f1d2d.js";const s={},r={class:"content"};function a(l,m){const e=t;return o(),_("div",r,[c(e)])}const u=n(s,[["render",a]]);export{u as A};
