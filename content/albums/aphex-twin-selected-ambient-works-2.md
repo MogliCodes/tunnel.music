@@ -10,7 +10,7 @@ genres: ['Ambient', 'Electronic', 'Dark Ambient', 'Ambient Techno', 'Drone']
 <music-genre-list :genres="genres"></music-genre-list>
 
 # Aphex Twin – Selected Ambient Works II
-Commentary coming soon test test...
+Legend has it that Aphex Twin was fed up with the ambient music of the time and produced this album as a kind of joke. I'm not entirely sure if that's really true. If it was, it would be crazy that the result is one of the most critically acclaimed ambient albums of the time.
 
 
 
