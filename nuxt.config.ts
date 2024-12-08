@@ -18,6 +18,14 @@ export default defineNuxtConfig({
       },
     },
   },
+  nitro: {
+    prerender: {
+      // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634580369
+      concurrency: 1,
+      // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634798275
+      failOnError: false,
+    },
+  },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@pinia/nuxt', "@nuxtjs/supabase", "nuxt-icon"],
   content: {
     documentDriven: true,
