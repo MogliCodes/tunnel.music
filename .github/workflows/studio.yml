@@ -7,7 +7,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'develop'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,7 +31,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [18]
+        node: [20]
 
     steps:
       - name: Checkout
@@ -50,10 +49,8 @@ jobs:
         if: ${{ steps.pkgman.outputs.package_manager == 'pnpm' }}
         name: Install pnpm
         id: pnpm-install
-        with:
-          version: 9
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           version: ${{ matrix.node }}
           cache: ${{ steps.pkgman.outputs.cache }}
@@ -68,19 +65,17 @@ jobs:
         run: echo $'\nautoImport=true\nmodules[]=@nuxthq/studio' >> .nuxtrc
 
       - name: Generate
-        run: npx nuxi generate
+        run: npx nuxi build --preset github_pages
         env:
           NUXT_PUBLIC_STUDIO_API_URL: https://api.nuxt.studio
-          NUXT_PUBLIC_STUDIO_TOKENS: 20eec4c149a23d05741438e91cb9ab04f919e6818f1ebc9d66d1c4ad07045163
           SPOTIFY_ACCESS_TOKEN: ${{ secrets.SPOTIFY_ACCESS_TOKEN }}
-          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
-          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
-      - name: Add .nojekyll file
-        run: touch .output/public/.nojekyll
-
-        # Deployment job
+      # Deployment job
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
