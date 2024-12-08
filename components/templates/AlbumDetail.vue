@@ -18,6 +18,7 @@
 }
 .content p {
   @apply text-gray-20;
+  @apply text-lg;
 }
 .content p a {
   @apply text-text;

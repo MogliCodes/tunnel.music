@@ -16,3 +16,5 @@ spotifyId: 194ZxFpjv5ttxZan4caXRq?si=KRHUHuTFSM2IbXs6MsK4vg
 ::
 
 # Steve Roach – Structures From Silence page
+
+As a good friend of mine described it, this album feels like floating in space. Especially the third and last track let's you forget everything around you. Just perfect to really focus on anything.
