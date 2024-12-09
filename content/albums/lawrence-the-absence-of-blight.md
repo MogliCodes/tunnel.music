@@ -11,4 +11,5 @@ release: '11-2003'
 <music-genre-list :genres="genres"></music-genre-list>
 
 # Lawrence – The Absence of Blight
-Commentary coming soon…
+
+This album has a really cold and a bit lonely atmosphere. Maybe it's another one of those cases where the cover really influences the feelings towards the music. It fits perfectly to grey and cold winter days.

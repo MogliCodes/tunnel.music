@@ -10,7 +10,8 @@ release: '03-1978'
 <music-genre-list :genres="genres"></music-genre-list>
 
 # Brian Eno – Ambient 1: Music for Airports
-Commentary coming soon…
+
+Another non-debatable classic. Honestly, I cannot really tell a lot about this album, because the first track already is so hypnotising that I forget everything that happens afterwards. Just listen and enjoy the repetitive Piano and Synthesizer melodies.
 
 
 
