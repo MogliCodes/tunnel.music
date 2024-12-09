@@ -32,9 +32,8 @@ const query: Ref<QueryBuilderParams> = ref({
 })
 
 const genreFilter = ref('Ambient')
-const albums: Ref = ref([])
+const { data: albums } = await useAsyncData('home', () => queryContent('albums').find()|| [], { lazy: true})
 
-albums.value = await queryContent('albums').find()|| []
 
 
 watch(genreFilter, async (genre) => {
