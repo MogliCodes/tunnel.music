@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // ssr: true,
   app: {
     head: {
       script: [{src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'}]
@@ -30,18 +29,11 @@ export default defineNuxtConfig({
   content: {
     documentDriven: true,
     experimental: {
+      // @ts-ignore
       clientDb: true
     }
   },
   supabase: {
     redirect: false,
   }
-  // nitro: {
-  //   prerender: {
-  //     // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634580369
-  //     concurrency: 1,
-  //     // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634798275
-  //     failOnError: false,
-  //   },
-  // },
 })

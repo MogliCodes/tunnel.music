@@ -37,5 +37,4 @@
     "vue3-youtube": "^0.1.9",
     "youtube-vue3": "^0.1.15"
   },
-  "packageManager": "pnpm@9.15.1"
 }
