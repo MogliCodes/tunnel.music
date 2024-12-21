@@ -1,1 +1,0 @@
-import c from"./O7zvmh-Q.js";import{k as o,c as t,e as n,i as s}from"./Bs0u8J8y.js";const r={},_={class:"content"};function a(i,m){const e=c;return t(),n("div",_,[s(e)])}const p=o(r,[["render",a]]);export{p as A};
