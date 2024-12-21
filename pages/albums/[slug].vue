@@ -2,9 +2,9 @@
   <main>
     <section v-if="page && page?.type === 'album'">
       <BaseContainer>
-        <div class="flex justify-between gap-8">
+        <div class="flex flex-col md:flex-row justify-between gap-8">
           <div class="md:w-2/6">
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-2">
               <div class="bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0" v-for="genre in page.genres">{{genre }}</div>
             </div>
             <AlbumDetail class="mb-8" />

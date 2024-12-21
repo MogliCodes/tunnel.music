@@ -7,7 +7,7 @@
 <style>
 .content h1 {
   @apply font-display;
-  @apply text-4xl;
+  @apply text-3xl;
   @apply mb-8;
   @apply mt-2;
 }

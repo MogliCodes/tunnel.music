@@ -12,6 +12,8 @@ release: '20-04-1998'
 
 # Boards of Canada – Music has the right to children
 
-The first time I heard Boards of Canada was in 2013 and I immediately fell in love with their sound, which I would always describe as flying through a desert of ice. I actually first heard Boards of Canada around 2005 and thought it was Portishead because a BoC track snuck into a folder of Portishead music on my PC. This album is an absolute masterpiece. Not just for ambient music, but music as a whole.
+The first time I heard Boards of Canada was in 2013 and I immediately fell in love with their sound, which I would always describe as flying through a desert of ice. Honestly any work of them would qualify for tunnel.music.
+
+Edit: I actually first heard Boards of Canada around 2005 and thought it was Portishead because a BoC track snuck into a folder of Portishead music on my PC. This album is an absolute masterpiece. Not just for ambient music, but music as a whole.
 
 

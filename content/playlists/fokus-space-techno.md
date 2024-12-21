@@ -1,13 +1,12 @@
 ---
-name: 'FOKUS: Space Techno'
-description: 'test'
+name: 'New Atlantis'
 platform: 'youtube'
 type: 'playlist'
 playlistId: 'PLjT1M1zlDfkTBxqYwauAYcuoibq5ceYa3'
-genres: ['Ambient Techno', 'Minimal Techno', 'Techno',]
+genres: ['Minimal Techno', 'Techno', 'Melodic Techno']
 navigation:
-  cover: '/img/test3.png'
+  cover: '/img/new_atlantis.jpg'
 ---
 
-# FOKUS: Space Techno
+# New Atlantis
 

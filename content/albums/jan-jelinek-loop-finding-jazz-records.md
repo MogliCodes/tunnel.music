@@ -9,6 +9,7 @@ navigation:
     cover: '/img/jan-jelinek-loop-finding-jazz-records-Cover-Art.webp'
 release: '12-06-1990'
 youtubeId: 'OLAK5uy_mRqd3w68qYN4deTCJUEdJdyMiXwBSBaw4&si=hNTaypPJr-49TBp1'
+spotifyId: '6UK4EMYa7by9xwU4eeAoE4?si=9mC66_y1TSW5Asp3a9ugYw'
 ---
 
 <music-genre-list :genres="genres"></music-genre-list>

@@ -11,7 +11,7 @@ type Props = {
 const props = defineProps<Props>()
 
 const STYLE_MAP = {
-  h1: 'text-xl xs:text-2xl sm:text-3xl md:text-4xl md:text-8xl font-display font-bold',
+  h1: 'text-3xl xs:text-2xl sm:text-3xl md:text-4xl md:text-8xl font-display font-bold',
   h2: 'text-xl xs:text-xl sm:text-2xl md:text-4xl font-display font-bold',
   h3: 'text-2xl font-bold',
   h4: 'text-lg font-bold',

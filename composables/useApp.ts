@@ -1,7 +1,8 @@
-import {defineStore} from 'pinia'
+// composables/useApp.ts
+import { useState } from '#app'
 
-export const useAppStore = defineStore('app', () => {
-    const tunnelMode = ref(false)
+export function useApp() {
+    const tunnelMode = useState('tunnelMode', () => false)
 
     function setTunnelMode(bool: boolean): void {
         tunnelMode.value = bool
@@ -11,4 +12,4 @@ export const useAppStore = defineStore('app', () => {
         tunnelMode,
         setTunnelMode,
     }
-})
+}

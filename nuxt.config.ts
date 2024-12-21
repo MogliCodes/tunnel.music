@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content', '@pinia/nuxt', "@nuxtjs/supabase", "nuxt-icon"],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/content',  "@nuxtjs/supabase", "nuxt-icon"],
   content: {
     documentDriven: true,
     experimental: {

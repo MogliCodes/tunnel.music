@@ -8,7 +8,8 @@
       </div>
       <div class="aspect-square w-full bg-gray-100 relative">
         <HeartIcon class="cursor-pointer w-8 h-8 fill-text right-2 top-2 absolute" v-if="isLiked" />
-        <img v-if="props?.navigation?.cover" class="w-full h-full object-cover brightness-50 opacity-50 hover:opacity-100 hover:brightness-100 transition duration-500" :src="props?.navigation?.cover" alt="" />
+        <img v-if="props?.navigation?.cover" class="w-full h-full object-cover brightness-50 opacity-50 hover:opacity-100 hover:brightness-100 transition duration-500" :src="props?.navigation?.cover" :alt="`Cover artwork for playlist '${props.title}'`" />
+
       </div>
     </figure>
     <figcaption class="p-4 bg-gray-90 line-clamp-1">

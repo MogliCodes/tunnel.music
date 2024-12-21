@@ -1,12 +1,12 @@
 <template>
     <div class="w-full bg-black aspect-video">
-        <PlaylistTrackComment v-if="audioStore.currentType === 'PlaylistComment'" />            
+        <PlaylistTrackComment v-if="currentType === 'PlaylistComment'" />
         <PlaylistTrackYoutube v-else />
     </div>
 </template>
 
 <script setup lang="ts">
-import { useAudioplayerStore } from '~/store/audioplayer';
+import { useAudioplayer } from '~/composables/useAudioPlayer'
 
-const audioStore = useAudioplayerStore()
+const { currentType } = useAudioplayer()
 </script>

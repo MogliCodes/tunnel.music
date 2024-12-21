@@ -4,7 +4,7 @@
       <div class="flex justify-between">
         <BaseHeadline type="h1" element="h1" class="mb-8" text="Albums" />
       </div>
-      <div class="mb-8">
+      <div class="mb-8 hidden md:block">
         <MusicGenres @select-genre="selectGenre($event)" />
       </div>
       <ContentNavigation v-slot="{ navigation }" :query="query">
@@ -78,6 +78,6 @@ function getAlbumInfo(navigation: any): AlbumInfo {
 const columnCount = ref(4)
 
 const columnClass = computed<string>(() => {
-  return columnCount.value ? `grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-${columnCount.value}` : 'grid-cols-2 lg:grid-cols-3'
+  return columnCount.value ? `grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-${columnCount.value}` : 'grid-cols-2 lg:grid-cols-3'
 })
 </script>

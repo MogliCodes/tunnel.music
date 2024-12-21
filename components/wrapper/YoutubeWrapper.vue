@@ -5,9 +5,9 @@
     </div>
     <div v-else class="w-full">
       <YoutubePlayer
-        v-if="audioStore.currentAudioId"
+        v-if="currentAudioId.value"
         :data="data"
-        :audio-id="audioStore.currentAudioId"
+        :audio-id="currentAudioId.value"
       />
       <div v-else class="h-[360px] w-full bg-pink-500"></div>
       <YoutubePlaylistControls />
@@ -20,18 +20,20 @@
 </template>
 
 <script setup lang="ts">
-import { Ref } from 'vue'
+import type { Ref } from 'vue'
 import YoutubePlayer from '~/components/wrapper/YoutubePlayer'
 import YoutubePlaylist from '~/components/wrapper/YoutubePlaylist.vue'
-import { useAudioplayerStore } from '~/store/audioplayer'
+import { useAudioplayer } from '~/composables/useAudioPlayer'
 import YoutubePlaylistControls from '~/components/wrapper/YoutubePlaylistControls.vue'
-const audioStore = useAudioplayerStore()
 
-// let youtubePlayer
-//
-// onMounted(() => {
-//   youtubePlayer = inject('youtubePlayer')
-// })
+const {
+  currentAudioId,
+  currentAudioIndex,
+  setPlaylistData,
+  setCurrentAudioIndex,
+  setCurrentAudioIdByIndex
+} = useAudioplayer()
+
 type Props = {
   playlistId: string
   comments: []
@@ -60,8 +62,6 @@ const { data, pending }: ApiResponse = await useFetch(
   `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${props.playlistId}&key=${API_KEY}`,
 )
 
-
-
 watch(pending, () => {
   if (!pending.value) {
     if(props.comments) {
@@ -69,26 +69,21 @@ watch(pending, () => {
     } else {
       mergedData.value = data?.value?.items
     }
-    audioStore.setPlaylistData(mergedData.value)
+    setPlaylistData(mergedData.value)
     initPlaylist()
   }
 })
 
 function initPlaylist() {
-  if (!audioStore.currentAudioId && !audioStore.currentAudioIndex) {
+  if (!currentAudioId.value && !currentAudioIndex.value) {
     console.log('INIT')
-    audioStore.setCurrentAudioIndex(0)
-    audioStore.setCurrentAudioIdByIndex(0)
-    console.log('audiostore', audioStore.currentAudioId)
+    setCurrentAudioIndex(0)
+    setCurrentAudioIdByIndex(0)
+    console.log('currentAudioId', currentAudioId.value)
   }
 }
 
-// function togglePlay() {
-//   console.log('TEST TOGGLE', youtubePlayer)
-//   youtubePlayer.playVideo()
-// }
-
-function insertAtIndex(arr, items) {
+function insertAtIndex(arr: MergedDataItem[], items: MergedDataItem[]) {
   for (const item of items) {
     if (
       item.hasOwnProperty('index') &&

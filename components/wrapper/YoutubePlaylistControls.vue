@@ -2,47 +2,47 @@
   <div class="mt-4 h-20 w-full rounded-xl bg-black bg-opacity-30">
     <div class="flex h-full items-center justify-center gap-4">
       <div
-        class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
-        :class="{
-        'opacity-40 pointer-events-none': audioPlayerStore.currentAudioIndex === 0
+          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
+          :class="{
+        'opacity-40 pointer-events-none': currentAudioIndex.value === 0
         }"
-        @click="playPrev()"
+          @click="playPrev()"
       >
         <img
-          class="relative h-full w-full p-3.5"
-          src="/player-control-01.svg"
-          alt=""
+            class="relative h-full w-full p-3.5"
+            src="/player-control-01.svg"
+            alt=""
         />
       </div>
       <div
-        class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-black"
-        @click="togglePlay"
+          class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-black"
+          @click="togglePlay"
 
       >
         <img
-          v-if="audioPlayerStore.isPlaying"
-          class="relative h-full w-full p-4"
-          src="/player-control-04.svg"
-          alt=""
+            v-if="isPlaying.value"
+            class="relative h-full w-full p-4"
+            src="/player-control-04.svg"
+            alt=""
         />
         <img
-          v-else
-          class="relative -right-1  h-full w-full p-4"
-          src="/player-control-02.svg"
-          alt=""
+            v-else
+            class="relative -right-1  h-full w-full p-4"
+            src="/player-control-02.svg"
+            alt=""
         />
       </div>
       <div
-        class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black "
-        @click="playNext"
-        :class="{
+          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black "
+          @click="playNext"
+          :class="{
         'opacity-40 pointer-events-none': isLastSong
         }"
       >
         <img
-          class="relative h-full w-full p-3.5"
-          src="/player-control-03.svg"
-          alt=""
+            class="relative h-full w-full p-3.5"
+            src="/player-control-03.svg"
+            alt=""
         />
       </div>
     </div>
@@ -50,36 +50,48 @@
 </template>
 
 <script setup lang="ts">
-import { useAudioplayerStore } from '~/store/audioplayer'
+import {useAudioplayer} from "~/composables/useAudioPlayer";
 
-const audioPlayerStore = useAudioplayerStore()
+const {
+  isPlaying,
+  currentAudioIndex,
+  playlistData,
+  decrementCurrentAudioIndex,
+  incrementCurrentAudioIndex,
+  setCurrentAudioIdByIndex,
+  setIsPlaying
+} = useAudioplayer()
+
 const emit = defineEmits(['togglePlay'])
 
 const playButtonPath = computed<string>(() => {
-  return audioPlayerStore.isPlaying.value ? '/player-control-02.svg' : '/player-control-04.svg'
+  return isPlaying.value ? '/player-control-02.svg' : '/player-control-04.svg'
 })
 
 const isLastSong = computed<boolean>(() => {
-  return audioPlayerStore.currentAudioIndex === audioPlayerStore.playlistData?.length - 1
+  if (playlistData.value && currentAudioIndex.value !== undefined) {
+    return currentAudioIndex.value === playlistData.value.length - 1
+  }
+  return false
 })
 
 function playPrev() {
-  audioPlayerStore.decrementCurrentAudioIndex()
-  audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
+  decrementCurrentAudioIndex()
+  setCurrentAudioIdByIndex(currentAudioIndex.value ?? 0)
   console.log('playPrev')
 }
 
 function playNext() {
-  temp = audioPlayerStore.currentAudioIndex + 1
+  const temp = (currentAudioIndex.value ?? 0) + 1
 
-  audioPlayerStore.incrementCurrentAudioIndex()
-  audioPlayerStore.setCurrentAudioIdByIndex(audioPlayerStore.currentAudioIndex)
-  audioPlayerStore.setIsPlaying(true)
+  incrementCurrentAudioIndex()
+  setCurrentAudioIdByIndex(temp)
+  setIsPlaying(true)
   console.log('playNext')
 }
 
 function togglePlay() {
-  audioPlayerStore.setIsPlaying(!audioPlayerStore.isPlaying)
+  setIsPlaying(!isPlaying.value)
   console.log('togglePlay')
   emit('togglePlay')
 }

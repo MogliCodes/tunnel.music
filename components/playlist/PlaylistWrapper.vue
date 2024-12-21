@@ -1,5 +1,6 @@
 <template>
   <div v-if="playlistData" class="bg-gray-90 rounded-md overflow-hidden">
+    <pre>{{ currentAudioId }}</pre>
     <PlaylistTrack />
     <PlaylistControls />
     <PlaylistTracklist :playlist-items="playlistData" />
@@ -8,7 +9,7 @@
 
 <script setup lang="ts">
 import type { PlaylistComment, YoutubeItem } from "~/types.d.ts";
-import { useAudioplayerStore } from '~/store/audioplayer'
+import { useAudioplayer } from '~/composables/useAudioPlayer'
 
 type Props = {
   playlistId: string
@@ -20,11 +21,18 @@ type ApiResponse = {
   pending: Ref<boolean>
 }
 
-
 const props = defineProps<Props>()
 const config = useRuntimeConfig()
 const API_KEY = config.public.youtube.apiKey
-const audioStore = useAudioplayerStore()
+const {
+  currentAudioId,
+  currentAudioIndex,
+  setPlaylistData,
+  setCurrentAudioIndex,
+  setCurrentAudioId,
+  setCurrentAudioIdByIndex,
+  setIsPlaying
+} = useAudioplayer()
 const playlistData: Ref<Array<YoutubeItem | PlaylistComment> | null> = ref(null)
 
 const { data, pending }: ApiResponse = await useFetch(
@@ -35,10 +43,11 @@ watch(pending, () => {
   if (!pending.value) {
     if(props.comments) {
       playlistData.value = mergeData(data?.value?.items, props.comments)
+      setCurrentAudioId(playlistData.value[0].snippet.resourceId.videoId)
     } else {
       playlistData.value = data?.value?.items
     }
-    audioStore.setPlaylistData(playlistData.value)
+    setPlaylistData(playlistData.value)
     initPlaylist()
   }
 }, { immediate: true })
@@ -46,16 +55,16 @@ watch(pending, () => {
 watch(props.comments, () => {
   if (props.comments) {
     playlistData.value = mergeData(data?.value?.items, props.comments)
-    audioStore.setPlaylistData(playlistData.value)
+    setPlaylistData(playlistData.value)
     initPlaylist()
   }
 })
 
 function initPlaylist() {
-  if (!audioStore.currentAudioId && !audioStore.currentAudioIndex) {
-    audioStore.setCurrentAudioIndex(0)
-    audioStore.setCurrentAudioIdByIndex(0)
-    audioStore.setIsPlaying(false)
+  setCurrentAudioIndex(0)
+  setCurrentAudioIdByIndex(0)
+  if (!currentAudioId.value && !currentAudioIndex.value) {
+    setIsPlaying(false)
   }
 }
 
@@ -72,10 +81,6 @@ function mergeData(dataYoutube: YoutubeItem[], dataComments: PlaylistComment[]) 
     return mergedData;
   }
 
-  // If youtubeDataEnriched is not iterable, you might want to handle it differently.
-  // For now, returning an empty array as a default value.
   return [];
 }
-
-
 </script>

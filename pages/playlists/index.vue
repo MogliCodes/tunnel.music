@@ -6,7 +6,7 @@
       </div>
       <ContentNavigation v-slot="{ navigation }" :query="query">
         <ul class="grid gap-8" :class="columnClass">
-          <li v-for="item in navigation?.[0].children" :key="item._path">
+          <li v-for="item in playlists" :key="item._path">
             <NuxtLink :to="item._path">
               <MusicTeaser v-bind="item" :is-liked="getUserLikes(item._path)" />
             </NuxtLink>
@@ -26,7 +26,9 @@ const query: QueryBuilderParams = {
   sort: [{ date: -1 }],
 }
 
-const columnCount = ref(5)
+const { data: playlists } = await useAsyncData('home', () => queryContent('playlists').find()|| [], { lazy: true})
+
+const columnCount = ref(3)
 
 const columnClass = computed<string>(() => {
   return columnCount.value ? `grid-cols-1 md:grid-cols-${columnCount.value}` : 'grid-cols-1 md:grid-cols-3'

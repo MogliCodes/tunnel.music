@@ -32,6 +32,7 @@ onMounted(() => {
     };
 
     audioPlayer.value.onpause = function() {
+      console.log('pause')
         audioPlayerStore.setIsPlaying(false)
     }
 
