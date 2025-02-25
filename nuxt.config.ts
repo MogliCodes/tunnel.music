@@ -5,6 +5,7 @@ export default defineNuxtConfig({
       script: [{src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'}]
     }
   },
+
   runtimeConfig: {
     public: {
       spotify: {
@@ -17,6 +18,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   nitro: {
     prerender: {
       // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634580369
@@ -25,7 +27,9 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
+
   modules: ['@nuxtjs/tailwindcss', '@nuxt/content',  "@nuxtjs/supabase", "@nuxt/icon", "@nuxtjs/plausible"],
+
   content: {
     documentDriven: true,
     experimental: {
@@ -33,7 +37,10 @@ export default defineNuxtConfig({
       clientDb: true
     }
   },
+
   supabase: {
     redirect: false,
-  }
+  },
+
+  compatibilityDate: "2025-02-17"
 })

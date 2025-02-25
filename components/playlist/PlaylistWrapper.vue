@@ -1,6 +1,5 @@
 <template>
   <div v-if="playlistData" class="bg-gray-90 rounded-md overflow-hidden">
-    <pre>{{ currentAudioId }}</pre>
     <PlaylistTrack />
     <PlaylistControls />
     <PlaylistTracklist :playlist-items="playlistData" />
