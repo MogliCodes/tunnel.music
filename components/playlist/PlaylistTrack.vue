@@ -1,7 +1,6 @@
 <template>
     <div class="w-full bg-black aspect-video">
         <PlaylistTrackComment v-if="currentType === 'PlaylistComment'" />
-        <PlaylistTrackYoutube v-else />
     </div>
 </template>
 

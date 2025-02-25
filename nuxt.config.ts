@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      script: [{src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js'}]
+      script: [{ src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js' }]
     }
   },
 
@@ -28,7 +28,14 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/content',  "@nuxtjs/supabase", "@nuxt/icon", "@nuxtjs/plausible"],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content',
+    "@nuxtjs/supabase",
+    "@nuxt/icon",
+    "@nuxtjs/plausible",
+    "@nuxt/scripts"
+  ],
 
   content: {
     documentDriven: true,
@@ -42,5 +49,9 @@ export default defineNuxtConfig({
     redirect: false,
   },
 
-  compatibilityDate: "2025-02-17"
+  compatibilityDate: "2025-02-17",
+
+  scripts: {
+    youtube: true
+  }
 })

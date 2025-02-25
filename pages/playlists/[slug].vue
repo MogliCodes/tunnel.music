@@ -7,17 +7,16 @@
             <div class="flex justify-between">
               <div class="flex gap-1">
                 <NuxtLink :to="`/genres/${slugifyGenre(genre)}`"
-                          class="bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0"
-                          v-for="genre in page.genres">{{ genre }}
+                  class="bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0"
+                  v-for="genre in page.genres">{{ genre }}
                 </NuxtLink>
               </div>
             </div>
-            <ContentDoc/>
+            <ContentDoc />
           </div>
           <client-only>
-            <PlaylistWrapper
-                :comments="page?.comments || []"
-                :playlist-id="page?.playlistId"/>
+            <YoutubeWrapper v-if="page?.playlistId" :comments="page?.comments || []" :playlist-id="page?.playlistId" />
+            <p v-else class="text-white">No playlist ID found</p>
           </client-only>
         </div>
         <NuxtLink class="rounded-md mr-2 inline-block dark:bg-gray-90 text-gray-20 px-4 py-2 text-sm" to="/playlists">
@@ -29,8 +28,8 @@
 </template>
 
 <script setup lang="ts">
-import PlaylistWrapper from "~/components/playlist/PlaylistWrapper.vue";
-import {useAudioplayer} from '~/composables/useAudioPlayer'
+import { useAudioplayer } from '~/composables/useAudioPlayer'
+import YoutubeWrapper from '~/components/wrapper/YoutubeWrapper.vue'
 
 const {
   clearPlaylistData
@@ -39,6 +38,8 @@ const {
 const { page } = useContent()
 clearPlaylistData()
 
+// Add debug logging
+console.log('Page data:', page)
 
 function slugifyGenre(genre: string) {
   return genre.toLowerCase().replace(/ /g, '-')

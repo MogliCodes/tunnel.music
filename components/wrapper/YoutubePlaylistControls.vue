@@ -1,56 +1,24 @@
 <template>
   <div class="mt-4 h-20 w-full rounded-xl bg-black bg-opacity-30">
     <div class="flex h-full items-center justify-center gap-4">
-      <div
-          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
-          :class="{
-        'opacity-40 pointer-events-none': currentAudioIndex.value === 0
-        }"
-          @click="playPrev()"
-      >
-        <img
-            class="relative h-full w-full p-3.5"
-            src="/player-control-01.svg"
-            alt=""
-        />
-      </div>
-      <div
-          class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-black"
-          @click="togglePlay"
-
-      >
-        <img
-            v-if="isPlaying.value"
-            class="relative h-full w-full p-4"
-            src="/player-control-04.svg"
-            alt=""
-        />
-        <img
-            v-else
-            class="relative -right-1  h-full w-full p-4"
-            src="/player-control-02.svg"
-            alt=""
-        />
-      </div>
-      <div
-          class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black "
-          @click="playNext"
-          :class="{
-        'opacity-40 pointer-events-none': isLastSong
-        }"
-      >
-        <img
-            class="relative h-full w-full p-3.5"
-            src="/player-control-03.svg"
-            alt=""
-        />
-      </div>
+      <button class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black"
+        :class="{ 'opacity-40 pointer-events-none': isFirstTrack }" @click="playPrev">
+        <img class="relative h-full w-full p-3.5" src="/player-control-01.svg" alt="Previous track" />
+      </button>
+      <button class="playlist-control h-16 w-16 cursor-pointer rounded-full bg-black" @click="togglePlay">
+        <img :class="{ '-right-1': !isPlaying }" class="relative h-full w-full p-4" :src="playButtonIcon"
+          :alt="isPlaying ? 'Pause' : 'Play'" />
+      </button>
+      <button class="playlist-control h-10 w-10 cursor-pointer rounded-full bg-black" @click="playNext"
+        :class="{ 'opacity-40 pointer-events-none': isLastTrack }">
+        <img class="relative h-full w-full p-3.5" src="/player-control-03.svg" alt="Next track" />
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {useAudioplayer} from "~/composables/useAudioPlayer";
+import { useYoutube } from "~/composables/useYoutube";
 
 const {
   isPlaying,
@@ -59,40 +27,62 @@ const {
   decrementCurrentAudioIndex,
   incrementCurrentAudioIndex,
   setCurrentAudioIdByIndex,
-  setIsPlaying
-} = useAudioplayer()
+  setIsPlaying,
+  setCurrentType,
+  setIsCommentary,
+  setCurrentCommentPath
+} = useYoutube()
 
-const emit = defineEmits(['togglePlay'])
+const isFirstTrack = computed(() => currentAudioIndex.value === 0)
 
-const playButtonPath = computed<string>(() => {
-  return isPlaying.value ? '/player-control-02.svg' : '/player-control-04.svg'
+const isLastTrack = computed(() => {
+  if (!playlistData.value) return true
+  return currentAudioIndex.value === playlistData.value.length - 1
 })
 
-const isLastSong = computed<boolean>(() => {
-  if (playlistData.value && currentAudioIndex.value !== undefined) {
-    return currentAudioIndex.value === playlistData.value.length - 1
-  }
-  return false
-})
+const playButtonIcon = computed(() =>
+  isPlaying.value ? '/player-control-04.svg' : '/player-control-02.svg'
+)
 
 function playPrev() {
   decrementCurrentAudioIndex()
-  setCurrentAudioIdByIndex(currentAudioIndex.value ?? 0)
-  console.log('playPrev')
+  const currentTrack = playlistData.value?.[currentAudioIndex.value]
+
+  if (currentTrack) {
+    if (currentTrack.type === 'PlaylistYoutubeTrack') {
+      setCurrentType('PlaylistYoutubeTrack')
+      setIsCommentary(false)
+      setCurrentAudioIdByIndex(currentAudioIndex.value)
+      setIsPlaying(true)
+    } else if (currentTrack.type === 'PlaylistComment') {
+      setCurrentType('PlaylistComment')
+      setIsCommentary(true)
+      setCurrentCommentPath(currentTrack.path)
+      setCurrentAudioIdByIndex(currentAudioIndex.value)
+    }
+  }
 }
 
 function playNext() {
-  const temp = (currentAudioIndex.value ?? 0) + 1
-
   incrementCurrentAudioIndex()
-  setCurrentAudioIdByIndex(temp)
-  setIsPlaying(true)
-  console.log('playNext')
+  const currentTrack = playlistData.value?.[currentAudioIndex.value]
+
+  if (currentTrack) {
+    if (currentTrack.type === 'PlaylistYoutubeTrack') {
+      setCurrentType('PlaylistYoutubeTrack')
+      setIsCommentary(false)
+      setCurrentAudioIdByIndex(currentAudioIndex.value)
+      setIsPlaying(true)
+    } else if (currentTrack.type === 'PlaylistComment') {
+      setCurrentType('PlaylistComment')
+      setIsCommentary(true)
+      setCurrentCommentPath(currentTrack.path)
+      setCurrentAudioIdByIndex(currentAudioIndex.value)
+    }
+  }
 }
 
 function togglePlay() {
   setIsPlaying(!isPlaying.value)
-  console.log('togglePlay')
-  emit('togglePlay')
 }
 </script>
