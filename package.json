@@ -24,7 +24,7 @@
     "eslint-plugin-tailwindcss": "^3.17.5",
     "eslint-plugin-vue": "^9.32.0",
     "js-yaml": "^4.1.0",
-    "nuxt": "3.14.1592",
+    "nuxt": "3.15.4",
     "path": "^0.12.7"
   },
   "dependencies": {
@@ -40,5 +40,6 @@
     "vue-lite-youtube-embed": "^1.2.4",
     "vue3-youtube": "^0.1.9",
     "youtube-vue3": "^0.1.15"
-  }
+  },
+  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
 }
