@@ -31,6 +31,8 @@
     "path": "^0.12.7"
   },
   "dependencies": {
+    "vue": "latest",
+    "vue-router": "latest",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@types/node": "^22.13.5",
     "@types/youtube-player": "^5.5.11",

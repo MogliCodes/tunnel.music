@@ -32,9 +32,15 @@ importers:
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+      vue:
+        specifier: latest
+        version: 3.5.13(typescript@5.7.3)
       vue-lite-youtube-embed:
         specifier: ^1.2.4
         version: 1.2.4(vue@3.5.13(typescript@5.7.3))
+      vue-router:
+        specifier: latest
+        version: 4.5.0(vue@3.5.13(typescript@5.7.3))
       vue3-youtube:
         specifier: ^0.1.9
         version: 0.1.9(typescript@5.7.3)
