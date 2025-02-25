@@ -25,6 +25,8 @@ export default defineNuxtConfig({
       concurrency: 1,
       // https://github.com/nuxt-themes/docus/issues/944#issuecomment-1634798275
       failOnError: false,
+      crawlLinks: true,
+      routes: ['/playlists', '/albums']
     },
   },
 
@@ -41,7 +43,11 @@ export default defineNuxtConfig({
     documentDriven: true,
     experimental: {
       // @ts-ignore
-      clientDb: true
+      clientDb: true,
+      stripQueryParameters: false
+    },
+    api: {
+      baseURL: '/api/_content'
     }
   },
 

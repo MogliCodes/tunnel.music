@@ -18,15 +18,29 @@
 </template>
 
 <script setup lang="ts">
-// ts-ignore
-import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
+interface QueryBuilderParams {
+  where?: Array<Record<string, any>>;
+  sort?: Array<Record<string, any>>;
+  limit?: number;
+}
+
 const query: QueryBuilderParams = {
   where: [{ type: 'playlist' }],
   limit: 20,
   sort: [{ date: -1 }],
 }
 
-const { data: playlists } = await useAsyncData('home', () => queryContent('playlists').find()|| [], { lazy: true})
+const { data: playlists } = await useAsyncData('playlists', () => 
+  queryContent('playlists')
+    .where({ type: 'playlist' })
+    .sort({ date: -1 })
+    .limit(20)
+    .find(),
+  {
+    server: true,
+    lazy: false
+  }
+)
 
 const columnCount = ref(3)
 
@@ -38,6 +52,7 @@ const columnClass = computed<string>(() => {
 const userLikes: any = useState('userLikes')
 
 function getUserLikes(path: string) {
-  return userLikes?.value?.includes(path.split('/').pop())
+  const slug = path.split('/').pop()
+  return slug ? userLikes?.value?.includes(slug) : false
 }
 </script>
