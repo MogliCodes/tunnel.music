@@ -27,7 +27,7 @@
                         class="h-8 w-8 rounded-full bg-gray-200/80 p-1.5 transition-all hover:bg-gray-300/80 disabled:opacity-40 disabled:cursor-not-allowed"
                         :disabled="currentIndex === 0" @click="handlePrevious">
                         <img class="h-full w-full transform transition-transform hover:-translate-x-0.5"
-                            src="/player-control-01.svg" alt="Previous" />
+                            :src="'/player-control-01.svg'" alt="Previous" />
                     </button>
 
                     <button
@@ -42,7 +42,7 @@
                         class="h-8 w-8 rounded-full bg-gray-200/80 p-1.5 transition-all hover:bg-gray-300/80 disabled:opacity-40 disabled:cursor-not-allowed"
                         :disabled="currentIndex === formattedPlaylist.length - 1" @click="handleNext">
                         <img class="h-full w-full transform transition-transform hover:translate-x-0.5"
-                            src="/player-control-03.svg" alt="Next" />
+                            :src="'/player-control-03.svg'" alt="Next" />
                     </button>
                 </div>
 
@@ -70,13 +70,13 @@
                             <div v-if="currentIndex === index && isPlaying"
                                 class="absolute inset-0 flex items-center justify-center bg-black/40">
                                 <div class="h-4 w-4">
-                                    <img src="/player-control-04.svg" alt="Now Playing"
-                                        class="h-full w-full opacity-90" />
+                                    <img :src="'/player-control-04.svg'" alt="Now Playing"
+                                        class="h-full w-full brightness-0 invert opacity-90" />
                                 </div>
                             </div>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="truncate text-sm"
+                        <div class="flex h-10 flex-1 min-w-0">
+                            <p class="truncate text-sm my-auto"
                                 :class="[currentIndex === index ? 'text-gray-900 font-medium' : 'text-gray-700']">
                                 {{ track.title }}
                             </p>

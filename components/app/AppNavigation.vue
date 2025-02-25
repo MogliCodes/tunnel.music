@@ -1,9 +1,15 @@
 <template>
   <div class="flex gap-6">
     <nav>
-      <ul>
-        <li class="inline-block">
-          <nuxt-link active-class="dark:bg-text dark:text-gray-90" class="block rounded-md mr-2 inline-block dark:bg-gray-90 text-gray-20 px-4 py-2 text-sm" to="/albums">albums</nuxt-link>
+      <ul class="flex gap-2">
+        <li v-for="item in navigationItems" :key="item.path" class="inline-block">
+          <nuxt-link 
+            :to="item.path"
+            active-class="dark:bg-text dark:text-gray-90" 
+            class="block rounded-md inline-block dark:bg-gray-90 text-gray-20 px-4 py-2 text-sm"
+          >
+            {{ item.label }}
+          </nuxt-link>
         </li>
       </ul>
     </nav>
@@ -35,6 +41,21 @@
 <script setup lang="ts">
 const user = useSupabaseUser()
 const supabase = useSupabaseClient()
+
+function getNavigationItems() {
+  return [
+    {
+      label: 'Albums',
+      path: '/albums'
+    },
+    {
+      label: 'Playlists',
+      path: '/playlists'
+    }
+  ]
+}
+
+const navigationItems = getNavigationItems()
 
 const signOutWithOAuth = async () => {
   const { error } = await supabase.auth.signOut()
