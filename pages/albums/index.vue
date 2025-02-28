@@ -7,72 +7,87 @@
       <div class="mb-8 hidden md:block">
         <MusicGenres @select-genre="selectGenre($event)" />
       </div>
-      <ContentNavigation v-slot="{ navigation }" :query="query">
-        <div v-if="navigation">
-          <ul class="grid gap-8" :class="columnClass">
-            <li v-for="item in albums" :key="item._path">
-              <NuxtLink :to="item._path">
-                <MusicTeaser v-bind="item" />
-              </NuxtLink>
-            </li>
-          </ul>
-        </div>
-      </ContentNavigation>
+      <div>
+        <ul class="grid gap-8" :class="columnClass">
+          <li v-for="item in filteredAlbums" :key="item._path">
+            <NuxtLink :to="item._path">
+              <MusicTeaser 
+                :title="item.title || ''" 
+                :type="item.type || 'album'" 
+                :genres="item.genres" 
+                :youtubeId="item.youtubeId" 
+                :spotifyId="item.spotifyId" 
+                :release="item.release"
+                :navigation="item.navigation" 
+              />
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
     </BaseContainer>
   </main>
 </template>
 
 <script setup lang="ts">
-import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 import MusicGenres from "~/components/music/MusicGenres.vue";
-const query: Ref<QueryBuilderParams> = ref({
-  where: [{ type: 'album',  }],
-  limit: 20,
-  sort: [{ date: -1 }],
+
+// Fetch all albums at build time
+const { data: allAlbums } = await useAsyncData('albums', () => 
+  queryContent('albums').find()
+)
+
+// Client-side state for filtering
+const selectedGenre = ref('*')
+
+// Computed property for filtered albums
+const filteredAlbums = computed(() => {
+  if (!allAlbums.value) return []
+  
+  if (selectedGenre.value === '*') {
+    return allAlbums.value
+  }
+  
+  return allAlbums.value.filter(album => 
+    album.genres && Array.isArray(album.genres) && 
+    album.genres.includes(selectedGenre.value)
+  )
 })
 
-const genreFilter = ref('Ambient')
-const { data: albums } = await useAsyncData('home', () => queryContent('albums').find()|| [], { lazy: true})
+// Handle route changes for direct links with genre parameter
+const route = useRoute()
 
-
-
-watch(genreFilter, async (genre) => {
-  await getAlbumsByGenre(genre)
+onMounted(() => {
+  // Check if there's a genre in the URL on initial load
+  if (route.query.genre) {
+    selectedGenre.value = route.query.genre as string
+  }
 })
 
-const route = useRoute();
-watch(() => route.fullPath, async () => {
-  console.log('route changed', route)
-  await getAlbumsByGenre(route.query.genre as string)
-}, { immediate: false });
+// Watch for route changes
+watch(() => route.query.genre, (newGenre) => {
+  if (newGenre) {
+    selectedGenre.value = newGenre as string
+  } else {
+    selectedGenre.value = '*'
+  }
+}, { immediate: true })
 
+// Handle genre selection from component
 function selectGenre(genre: string) {
-  if(genre === genreFilter.value) return genreFilter.value = '*'
-  genreFilter.value = genre
-}
-
-async function getAlbumsByGenre(genre: string) {
-  if(genre === '*') return albums.value = await queryContent('albums').find() || []
-  albums.value =  await queryContent('albums').where({ 'genres': { $contains: genre } }).find() || []
-  // add genre as url param
-  if(!window) return
-  const url = new URL(window?.location.href)
-  url.searchParams.set('genre', genre)
-  window?.history.pushState({}, '', url)
-}
-
-
-type AlbumInfo = {
-  title: string
-  type: 'album' | 'playlist'
-  genres: string
-  youtubeId: string
-  spotifyId: string
-  release: string
-}
-
-function getAlbumInfo(navigation: any): AlbumInfo {
-  return navigation?.[0].children
+  selectedGenre.value = genre
+  
+  // Update URL without reloading the page
+  const newQuery = {...route.query}
+  
+  if (genre === '*') {
+    delete newQuery.genre
+  } else {
+    newQuery.genre = genre
+  }
+  
+  navigateTo({
+    query: newQuery
+  }, { replace: true })
 }
 
 const columnCount = ref(4)

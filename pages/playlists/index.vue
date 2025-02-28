@@ -42,7 +42,7 @@ const { data: playlists } = await useAsyncData('playlists', () =>
   }
 )
 
-const columnCount = ref(3)
+const columnCount = ref(5)
 
 const columnClass = computed<string>(() => {
   return columnCount.value ? `grid-cols-1 md:grid-cols-${columnCount.value}` : 'grid-cols-1 md:grid-cols-3'
