@@ -38,9 +38,6 @@ const {
 const { page } = useContent()
 clearPlaylistData()
 
-// Add debug logging
-console.log('Page data:', page)
-
 function slugifyGenre(genre: string) {
   return genre.toLowerCase().replace(/ /g, '-')
 }

@@ -42,7 +42,6 @@ onMounted(() => {
     };
 
     audioPlayer.value.onpause = function() {
-        console.log('pause')
         setIsPlaying(false)
     }
 
@@ -56,13 +55,11 @@ onMounted(() => {
 })
 
 watch(isPlaying, () => {
-    console.log('isplaying', isPlaying)
     if(!audioPlayer || !audioPlayer.value) return
     if(isPlaying.value && isCommentary.value) {
         audioPlayer.value.play()
     } else {
         audioPlayer.value.pause()
-        console.log("SHOULD PAUSE")
     }
 })
 </script>

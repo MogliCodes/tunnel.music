@@ -82,7 +82,6 @@
 
   function togglePlay() {
     setIsPlaying(!isPlaying.value)
-    console.log('togglePlay')
     emit('togglePlay')
   }
   </script>

@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  site: {
+    url: 'https://tunnelmusic.netlify.app',
+    name: 'tunnel.music',
+    description: 'Dive into a world of carefully selected tunes, designed to help you enter the tunnel mode effortlessly.',
+    defaultLocale: 'en',
+  },
+
   app: {
     head: {
       script: [{ src: 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js' }]
@@ -36,7 +43,8 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     "@nuxt/icon",
     "@nuxtjs/plausible",
-    "@nuxt/scripts"
+    "@nuxt/scripts",
+    '@nuxtjs/seo'
   ],
 
   content: {

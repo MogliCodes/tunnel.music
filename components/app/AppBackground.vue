@@ -30,8 +30,6 @@ var ww      = window.innerWidth,
 function init(){
   const sceneEl = ref(null)
   const el = document.getElementById('scene')
-  console.log('el', el)
-  console.log('scene', sceneEl)
   renderer = new THREE.WebGLRenderer({canvas : document.getElementById('scene'), antialias: true});
   renderer.setSize(ww,wh);
   scene = new THREE.Scene();

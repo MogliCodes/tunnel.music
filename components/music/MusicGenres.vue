@@ -13,7 +13,6 @@ const emit = defineEmits(['select-genre'])
 const activeGenreIndex = ref(-1)
 
 function isGenreActive(index) {
-  console.log(index, activeGenreIndex.value)
   return index === activeGenreIndex.value
 }
 

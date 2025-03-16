@@ -59,7 +59,7 @@ const navigationItems = getNavigationItems()
 
 const signOutWithOAuth = async () => {
   const { error } = await supabase.auth.signOut()
-  if (error) console.log(error)
+  if (error) console.error(error)
 }
 
 </script>

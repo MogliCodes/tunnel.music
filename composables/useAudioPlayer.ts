@@ -39,7 +39,6 @@ export function useAudioplayer() {
     if(!index || !playlistData.value) return
     if (!playlistData.value) return
     currentAudioId.value = playlistData.value[index]?.snippet?.resourceId?.videoId
-    console.log('setCurrentAudioIdByIndex currentAudioId.value', currentAudioId.value)
   }
 
   function setCurrentTypeByIndex(index: number): void {
@@ -70,13 +69,10 @@ export function useAudioplayer() {
   function incrementCurrentAudioIndex(): void {
     if (!!currentAudioIndex.value) {
       currentAudioIndex.value++
-      console.log('INCREMENT')
-      console.log(currentAudioIndex.value)
     }
   }
 
   function setIsPlaying(bool: boolean): void {
-    console.log('setIsPlaying bool', bool)
     isPlaying.value = bool
   }
 

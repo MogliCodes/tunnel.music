@@ -21,7 +21,6 @@ import type {QueryBuilderParams} from "@nuxt/content/types";
 const { page } = useContent()
 const query: Ref<QueryBuilderParams> = ref()
 watch(page, () => {
-  console.log('page changed', page)
   query.value = {
     where: [{ type: 'album', artist: page.name }],
     limit: 20,
