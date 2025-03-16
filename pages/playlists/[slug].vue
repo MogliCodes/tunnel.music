@@ -5,7 +5,7 @@
         <div class="w-full lg:w-3/4">
           <div class="content w-full">
             <div class="flex justify-between">
-              <div class="flex gap-1">
+              <div class="flex flex-wrap gap-1">
                 <NuxtLink :to="`/genres/${slugifyGenre(genre)}`"
                   class="bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0"
                   v-for="genre in page.genres">{{ genre }}
