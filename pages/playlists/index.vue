@@ -5,7 +5,7 @@
         <BaseHeadline type="h1" element="h1" class="mb-8" text="Playlists" />
       </div>
       <ContentNavigation v-slot="{ navigation }" :query="query">
-        <ul class="grid gap-8" :class="columnClass">
+        <ul class="grid" :class="columnClass">
           <li v-for="item in playlists" :key="item._path">
             <NuxtLink :to="item._path">
               <MusicTeaser v-bind="item" :is-liked="getUserLikes(item._path)" />
@@ -45,7 +45,7 @@ const { data: playlists } = await useAsyncData('playlists', () =>
 const columnCount = ref(3)
 
 const columnClass = computed<string>(() => {
-  return columnCount.value ? `grid-cols-1 md:grid-cols-${columnCount.value}` : 'grid-cols-1 md:grid-cols-3'
+  return columnCount.value ? `grid-cols-1 gap-2 md:gap-8 md:grid-cols-${columnCount.value}` : 'grid-cols-1 md:grid-cols-3'
 })
 
 

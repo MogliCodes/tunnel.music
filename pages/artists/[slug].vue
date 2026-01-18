@@ -5,7 +5,7 @@
   <BaseContainer>
     <ContentNavigation v-if="query" v-slot="{ navigation }" :query="query">
       <div v-if="navigation">
-        <ul class="grid gap-8">
+        <ul class="grid gap-2 md:gap-8">
           <li v-for="item in navigation" :key="item._path">
             {{ item }}
           </li>

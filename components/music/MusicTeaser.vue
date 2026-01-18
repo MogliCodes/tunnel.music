@@ -2,7 +2,7 @@
   <article class="rounded-md overflow-hidden">
     <figure class="relative">
       <div class="absolute pointer-events-none top-2 right-2 bottom-2 left-2 z-10">
-        <div class="flex gap-2  flex-wrap">
+        <div class="flex gap-1 md:gap-2 flex-wrap">
           <div v-for="(genre, index) in genres" :key="`genre-${index}`" class="bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0">{{ genre }}</div>
         </div>
       </div>

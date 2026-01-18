@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap gap-2">
     <div @click="selectGenre($event, genre, index)" class="cursor-pointer" v-for="(genre, index) in genres" :key="`genre-${genre}`">
-      <span :class="{'bg-text dark:text-gray-90': isGenreActive(index)}" class="genre bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0">{{ genre }}</span>
+      <span :class="{'bg-text text-gray-90': isGenreActive(index)}" class="genre bg-gray-90 text-gray-20 text-xs p-2 rounded-md line-clamp-1 bottom-0">{{ genre }}</span>
     </div>
   </div>
 </template>

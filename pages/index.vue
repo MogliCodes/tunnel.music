@@ -1,6 +1,6 @@
 <template>
 
-  <main>
+  <main class="pt-20 md:pt-0">
     <BaseContainer class="w-full flex justify-center">
       <div class="relative flex flex-col gap-4 sm:gap-8 md:gap-12 items-start z-20 w-full lg:w-7/12">
         <h1 class="font-display text-3xl sm:text-5xl lg:text-8xl uppercase">music for getting into the tunnel</h1>

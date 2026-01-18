@@ -19,7 +19,7 @@
             <p v-else class="text-white">No playlist ID found</p>
           </client-only>
         </div>
-        <NuxtLink class="rounded-md mr-2 inline-block dark:bg-gray-90 text-gray-20 px-4 py-2 text-sm" to="/playlists">
+        <NuxtLink class="rounded-md mr-2 inline-block bg-gray-90 text-gray-20 px-4 py-2 text-sm" to="/playlists">
           Back to playlists
         </NuxtLink>
       </div>

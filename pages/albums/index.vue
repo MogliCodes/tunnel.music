@@ -8,7 +8,7 @@
         <MusicGenres @select-genre="selectGenre($event)" />
       </div>
       <div>
-        <ul class="grid gap-8" :class="columnClass">
+        <ul class="grid gap-2 md:gap-8" :class="columnClass">
           <li v-for="item in filteredAlbums" :key="item._path">
             <NuxtLink :to="item._path">
               <MusicTeaser 

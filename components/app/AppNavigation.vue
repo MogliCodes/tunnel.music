@@ -5,8 +5,8 @@
         <li v-for="item in navigationItems" :key="item.path" class="inline-block">
           <nuxt-link 
             :to="item.path"
-            active-class="dark:bg-text dark:text-gray-90" 
-            class="block rounded-md inline-block dark:bg-gray-90 text-gray-20 px-4 py-2 text-sm"
+            active-class="bg-text text-gray-90"
+            class="rounded-md inline-block bg-gray-90 text-gray-20 px-4 py-2 text-sm"
           >
             {{ item.label }}
           </nuxt-link>
